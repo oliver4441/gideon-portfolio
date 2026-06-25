@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send, Github, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Twitter, MessageCircle, Briefcase } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -137,7 +137,40 @@ export default function Contact() {
                 >
                   <Mail size={18} />
                 </a>
+                <a
+                  href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%27d%20like%20to%20connect%20with%20you%20on%20WhatsApp."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-dark-800 border border-dark-700 rounded-lg flex items-center justify-center text-dark-400 hover:text-green-400 hover:border-green-500/30 transition-all"
+                  aria-label="WhatsApp"
+                >
+                  <MessageCircle size={18} />
+                </a>
               </div>
+            </div>
+
+            {/* Recruiter / Collaboration CTA */}
+            <div className="p-5 bg-dark-800/60 border border-gold-500/10 rounded-2xl">
+              <div className="flex items-center gap-2 mb-2">
+                <Briefcase size={16} className="text-gold-500" />
+                <h4 className="text-sm font-semibold text-gold-500">
+                  Recruiters &amp; Partners
+                </h4>
+              </div>
+              <p className="text-xs text-dark-400 mb-3 leading-relaxed">
+                Interested in hiring, collaborating, or joining forces with
+                <a href="https://omixsystems.store" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:text-gold-300 underline underline-offset-2 mx-1">Omix Systems</a>
+                ? Let&apos;s connect.
+              </p>
+              <a
+                href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%27m%20a%20recruiter%20partner%20interested%20in%20collaborating%20with%20Omix%20Systems.%20Let%27s%20talk!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium rounded-lg hover:bg-green-500/20 transition-all"
+              >
+                <MessageCircle size={13} />
+                Reach Out on WhatsApp
+              </a>
             </div>
           </motion.div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -73,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
         >
           <a
             href="#projects"
@@ -89,11 +89,55 @@ export default function Hero() {
           </a>
         </motion.div>
 
+        {/* WhatsApp Chat Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-col items-center gap-4 mb-12"
+        >
+          <a
+            href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-400 transition-all duration-200 shadow-lg shadow-green-500/20"
+          >
+            <MessageCircle size={20} />
+            Chat on WhatsApp
+          </a>
+          <span className="text-xs text-dark-500">0768 213 649</span>
+        </motion.div>
+
+        {/* Recruiter / Collaboration CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="max-w-xl mx-auto mb-10"
+        >
+          <div className="p-5 bg-dark-800/60 border border-dark-700/50 rounded-2xl text-center">
+            <p className="text-sm text-dark-300 mb-2">
+              <span className="text-gold-500 font-semibold">Recruiters &amp; Collaborators</span> — Interested in joining forces with
+              <a href="https://omixsystems.store" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:text-gold-300 underline underline-offset-2 mx-1">Omix Systems</a>
+              or exploring partnership opportunities?
+            </p>
+            <a
+              href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%27m%20interested%20in%20collaborating%20with%20Omix%20Systems%20and%20would%20love%20to%20discuss%20opportunities."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors"
+            >
+              <MessageCircle size={14} />
+              Let&apos;s talk on WhatsApp
+            </a>
+          </div>
+        </motion.div>
+
         {/* Social links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="flex items-center justify-center gap-5"
         >
           {[

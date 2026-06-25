@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -50,6 +51,15 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm font-medium bg-green-500/10 text-green-400 border border-green-500/20 rounded-lg hover:bg-green-500/20 transition-all duration-200 flex items-center gap-1.5"
+            >
+              <MessageCircle size={14} />
+              WhatsApp
+            </a>
             <a
               href="#contact"
               className="px-4 py-2 text-sm font-medium bg-gold-500/10 text-gold-500 border border-gold-500/20 rounded-lg hover:bg-gold-500/20 transition-all duration-200"

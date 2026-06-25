@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Mail } from "lucide-react";
+import { Github, Mail, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -31,6 +31,15 @@ export default function Footer() {
               aria-label="Email"
             >
               <Mail size={16} />
+            </a>
+            <a
+              href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-dark-500 hover:text-green-400 transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={16} />
             </a>
           </div>
         </div>
