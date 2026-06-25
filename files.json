@@ -1,0 +1,18 @@
+{
+  "src/next.config.js": "d1d55aa5950aa795ca797c1a0f84a9b934e695a3",
+  "src/package-lock.json": "ce0c979d43e720dec1763978e3dd44512bfc7136",
+  "src/package.json": "3df594fcc907a3646f041bafa09ed26d6c2c2bf5",
+  "src/postcss.config.mjs": "14ce92624d0ef93173148ec2d91ab5498e242806",
+  "src/tailwind.config.js": "0890ce1348f3ac08c3babb1f1b6123d5f985fe01",
+  "src/tsconfig.json": "6af2ef7767552893fbc31700ef8cfc822442ee00",
+  "src/app/globals.css": "bc77da0727f0cdfc1fbfdd335cb1d3cca9cde7bf",
+  "src/app/layout.tsx": "3052976dfb2b674621aa77033984f04706839b58",
+  "src/app/page.tsx": "00deb25714ef7fc9cd0042f3d45a93fd37b10c58",
+  "src/components/About.tsx": "46e8bb769a3b6d46ee8cf3d9dcd629f8cd107d57",
+  "src/components/Contact.tsx": "71471d9e726cee40af7b332e9b6c74cba778ce48",
+  "src/components/Footer.tsx": "f9d25e2fed7a76e5b6c10f35f7c3db158435db98",
+  "src/components/Hero.tsx": "0f7a97fe81b998a66f01d7e8111cd500b3891875",
+  "src/components/Navbar.tsx": "aa95254586e2ff96f074ca29b6d1cfac06011000",
+  "src/components/Projects.tsx": "2770fd74268450c92e2c23997d58e7a106070293",
+  "src/components/Skills.tsx": "2015cd3e5d2c48f91007758508f3ced90da0913f"
+}
