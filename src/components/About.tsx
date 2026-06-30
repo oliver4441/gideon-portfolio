@@ -70,13 +70,18 @@ export default function About() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-dark-800 border border-dark-700 glow-gold">
                 <img
                   src="/assets/profile.jpg"
-                  alt="Gideon Kipkirui"
+                  alt="Lang'at Gideon"
                   className="w-full h-full object-cover"
                 />
               </div>
               {/* Decorative element */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold-500/20 rounded-2xl" />
               <div className="absolute -top-4 -left-4 w-16 h-16 border border-gold-500/10 rounded-2xl" />
+              {/* Caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-950/90 to-transparent p-4">
+                <p className="text-sm text-dark-200 font-medium">Lang&apos;at Gideon</p>
+                <p className="text-xs text-dark-400">Full-Stack Developer &amp; AI Engineer</p>
+              </div>
             </div>
           </motion.div>
 
@@ -90,7 +95,7 @@ export default function About() {
               Full-Stack Developer & AI Engineer
             </h3>
             <p className="text-dark-300 mb-4 leading-relaxed">
-              I&apos;m Gideon Kipkirui, a developer from Kericho, Kenya who loves
+              I&apos;m Lang&apos;at Gideon, a developer from Kericho, Kenya who loves
               building things that matter. From full-stack web applications to
               AI-powered platforms and even blockchain projects — I dive deep
               into technologies that push the envelope.
@@ -98,8 +103,9 @@ export default function About() {
             <p className="text-dark-300 mb-8 leading-relaxed">
               Through my company <span className="text-gold-500 font-medium">Omix Systems</span>,
               I help small businesses get fast, conversion-focused websites.
-              I&apos;m also the developer behind projects like Elite EA Marketplace,
-              Chepseon Complex High School&apos;s website, and Granny Exchange on Solana.
+              I&apos;m also the developer behind projects like Sentienx
+              (a Deriv trading platform), Granny Exchange on Solana,
+              and Omix School Management.
             </p>
 
             {/* Stats */}

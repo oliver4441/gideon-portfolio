@@ -36,8 +36,8 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="#home" className="text-xl font-bold">
-            <span className="gradient-text">G</span>
-            <span className="text-dark-100">K</span>
+            <span className="gradient-text">L</span>
+            <span className="text-dark-100">G</span>
           </a>
 
           {/* Desktop nav */}
@@ -52,7 +52,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
+              href="https://wa.me/254768213649?text=Hi%20Lang%27at%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-medium bg-green-500/10 text-green-400 border border-green-500/20 rounded-lg hover:bg-green-500/20 transition-all duration-200 flex items-center gap-1.5"

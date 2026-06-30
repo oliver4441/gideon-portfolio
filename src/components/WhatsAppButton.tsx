@@ -57,7 +57,7 @@ export default function WhatsAppButton() {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
-          href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
+          href="https://wa.me/254768213649?text=Hi%20Lang%27at%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
           target="_blank"
           rel="noopener noreferrer"
           className="group relative w-14 h-14 bg-green-500 hover:bg-green-400 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-all duration-200"

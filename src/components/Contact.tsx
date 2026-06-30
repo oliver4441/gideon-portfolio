@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send, Github, Twitter, MessageCircle, Briefcase } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Twitter, MessageCircle, Briefcase, Linkedin } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -138,7 +138,16 @@ export default function Contact() {
                   <Mail size={18} />
                 </a>
                 <a
-                  href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%27d%20like%20to%20connect%20with%20you%20on%20WhatsApp."
+                  href="https://www.linkedin.com/in/gideon-langat-5b32b3301"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-dark-800 border border-dark-700 rounded-lg flex items-center justify-center text-dark-400 hover:text-blue-400 hover:border-blue-500/30 transition-all"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="https://wa.me/254768213649?text=Hi%20Lang%27at%20Gideon!%20I%27d%20like%20to%20connect%20with%20you%20on%20WhatsApp."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-dark-800 border border-dark-700 rounded-lg flex items-center justify-center text-dark-400 hover:text-green-400 hover:border-green-500/30 transition-all"
@@ -163,7 +172,7 @@ export default function Contact() {
                 ? Let&apos;s connect.
               </p>
               <a
-                href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%27m%20a%20recruiter%20partner%20interested%20in%20collaborating%20with%20Omix%20Systems.%20Let%27s%20talk!"
+                href="https://wa.me/254768213649?text=Hi%20Lang%27at%20Gideon!%20I%27m%20a%20recruiter%20partner%20interested%20in%20collaborating%20with%20Omix%20Systems.%20Let%27s%20talk!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium rounded-lg hover:bg-green-500/20 transition-all"

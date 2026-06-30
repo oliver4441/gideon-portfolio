@@ -44,8 +44,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6"
         >
-          <span className="text-dark-50">Gideon</span>{" "}
-          <span className="gradient-text">Kipkirui</span>
+          <span className="text-dark-50">Lang&apos;at</span>{" "}
+          <span className="gradient-text">Gideon</span>
         </motion.h1>
 
         {/* Tagline */}
@@ -97,7 +97,7 @@ export default function Hero() {
           className="flex flex-col items-center gap-4 mb-12"
         >
           <a
-            href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
+            href="https://wa.me/254768213649?text=Hi%20Lang%27at%20Gideon!%20I%20came%20across%20your%20portfolio%20and%20I%27d%20love%20to%20connect."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-400 transition-all duration-200 shadow-lg shadow-green-500/20"
@@ -122,7 +122,7 @@ export default function Hero() {
               or exploring partnership opportunities?
             </p>
             <a
-              href="https://wa.me/254768213649?text=Hi%20Gideon!%20I%27m%20interested%20in%20collaborating%20with%20Omix%20Systems%20and%20would%20love%20to%20discuss%20opportunities."
+              href="https://wa.me/254768213649?text=Hi%20Lang%27at%20Gideon!%20I%27m%20interested%20in%20collaborating%20with%20Omix%20Systems%20and%20would%20love%20to%20discuss%20opportunities."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors"
