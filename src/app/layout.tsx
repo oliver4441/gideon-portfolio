@@ -22,6 +22,27 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="noise-bg antialiased">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfilePage",
+              "name": "Lang'at Gideon - Portfolio",
+              "url": "https://admin.omixsystems.store/",
+              "about": {
+                "@type": "Person",
+                "name": "Lang'at Gideon",
+                "jobTitle": "Full-Stack Developer & AI Engineer",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "Omix Systems",
+                  "url": "https://omixsystems.store/"
+                }
+              }
+            })
+          }}
+        />
       </body>
     </html>
   );
