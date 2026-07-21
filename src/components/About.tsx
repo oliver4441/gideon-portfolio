@@ -69,7 +69,7 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-dark-800 border border-dark-700 glow-gold">
                 <img
-                  src="/assets/profile.jpg"
+                  src="/assets/profile.png"
                   alt="Lang'at Gideon"
                   className="w-full h-full object-cover"
                 />

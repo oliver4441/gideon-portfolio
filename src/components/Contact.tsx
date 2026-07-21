@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send, Github, Twitter, MessageCircle, Briefcase, Linkedin } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, MessageCircle, Briefcase, Linkedin } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -196,10 +195,11 @@ export default function Contact() {
             >
               <div className="grid sm:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label className="block text-sm text-dark-300 mb-2">
+                  <label htmlFor="contact-name" className="block text-sm text-dark-300 mb-2">
                     Your Name
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     required
                     value={formState.name}
@@ -211,10 +211,11 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-dark-300 mb-2">
+                  <label htmlFor="contact-email" className="block text-sm text-dark-300 mb-2">
                     Your Email
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     required
                     value={formState.email}
@@ -227,10 +228,11 @@ export default function Contact() {
                 </div>
               </div>
               <div className="mb-6">
-                <label className="block text-sm text-dark-300 mb-2">
+                <label htmlFor="contact-message" className="block text-sm text-dark-300 mb-2">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   required
                   rows={5}
                   value={formState.message}

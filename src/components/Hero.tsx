@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
+import { ArrowDown, Github, Mail, MessageCircle } from "lucide-react";
 
 export default function Hero() {
   return (

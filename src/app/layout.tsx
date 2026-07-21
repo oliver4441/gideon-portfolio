@@ -1,5 +1,18 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Lang'at Gideon | Full-Stack Developer & AI Engineer",
@@ -13,14 +26,21 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#080808",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="noise-bg antialiased">
+    <html
+      lang="en"
+      className={`scroll-smooth bg-dark-950 ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="noise-bg antialiased font-sans">
         {children}
         <script
           type="application/ld+json"
