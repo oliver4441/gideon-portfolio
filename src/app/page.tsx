@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ProfileShowcase from "@/components/ProfileShowcase";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <Hero />
+      <ProfileShowcase />
       <About />
       <Skills />
       <Projects />
