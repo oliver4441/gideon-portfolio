@@ -43,3 +43,84 @@ if (canvas && !reduce) {
   };
   init();
 }
+
+// Outside-the-code gallery: the supplied outdoors and gaming images crossfade over one another.
+const setupOutsideGallery = () => {
+  const gallery = document.querySelector('.life-images');
+  if (!gallery) return;
+  const slides = [...gallery.querySelectorAll('figure')].filter((figure) => {
+    const image = figure.querySelector('img');
+    return image && /gideon-(outdoors|gaming)\.webp$/i.test(image.getAttribute('src') || '');
+  });
+  if (slides.length < 2) return;
+
+  const workspace = [...gallery.querySelectorAll('figure')].find((figure) => {
+    const image = figure.querySelector('img');
+    return image && /gideon-workspace\.webp$/i.test(image.getAttribute('src') || '');
+  });
+  workspace?.remove();
+
+  gallery.classList.add('lifestyle-slideshow');
+  gallery.setAttribute('role', 'region');
+  gallery.setAttribute('aria-label', 'Outside the code photo gallery');
+  gallery.setAttribute('aria-roledescription', 'carousel');
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .life-images.lifestyle-slideshow{display:block;position:relative;width:100%;max-width:760px;aspect-ratio:4/3;min-height:280px;isolation:isolate}
+    .lifestyle-slideshow figure{position:absolute!important;inset:0;width:100%;height:100%;margin:0;opacity:0;visibility:hidden;transform:translate3d(0,0,0)!important;transition:opacity 900ms cubic-bezier(.2,.7,.2,1),visibility 0s linear 900ms}
+    .lifestyle-slideshow figure.is-active{opacity:1;visibility:visible;transition:opacity 900ms cubic-bezier(.2,.7,.2,1),visibility 0s linear 0s}
+    .lifestyle-slideshow figure img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:2px;filter:saturate(.9);box-shadow:0 22px 55px rgba(0,0,0,.16)}
+    .lifestyle-slideshow .slide-meta{position:absolute;z-index:3;left:18px;bottom:18px;padding:8px 11px;background:rgba(243,240,233,.9);backdrop-filter:blur(8px);font:600 10px/1 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#171713}
+    .lifestyle-slideshow .slide-dots{position:absolute;z-index:4;right:18px;bottom:18px;display:flex;gap:7px}
+    .lifestyle-slideshow .slide-dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:rgba(243,240,233,.48);cursor:pointer;transition:transform .25s,background .25s}
+    .lifestyle-slideshow .slide-dot.is-active{background:#f3f0e9;transform:scale(1.35)}
+    @media(max-width:900px){.life-images.lifestyle-slideshow{width:100%;aspect-ratio:4/3;min-height:0}.lifestyle-slideshow figure img{box-shadow:0 14px 30px rgba(0,0,0,.13)}.lifestyle-slideshow .slide-meta{left:12px;bottom:12px}.lifestyle-slideshow .slide-dots{right:12px;bottom:12px}}
+    @media(prefers-reduced-motion:reduce){.lifestyle-slideshow figure{transition:none}}
+  `;
+  document.head.appendChild(style);
+
+  const labels = ['Outside · outdoors', 'Outside · gaming'];
+  const dots = document.createElement('div');
+  dots.className = 'slide-dots';
+  dots.setAttribute('aria-label', 'Gallery slides');
+  const meta = document.createElement('div');
+  meta.className = 'slide-meta';
+  gallery.append(meta, dots);
+
+  let active = 0;
+  let timer;
+  const show = (index, manual = false) => {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const selected = i === active;
+      slide.classList.toggle('is-active', selected);
+      slide.setAttribute('aria-hidden', selected ? 'false' : 'true');
+      dots.children[i]?.classList.toggle('is-active', selected);
+    });
+    meta.textContent = labels[active];
+    if (manual) restart();
+  };
+  const restart = () => {
+    clearInterval(timer);
+    if (reduce || document.hidden) return;
+    timer = setInterval(() => show(active + 1), 5000);
+  };
+
+  slides.forEach((slide, index) => {
+    slide.classList.toggle('is-active', index === 0);
+    slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+    const dot = document.createElement('button');
+    dot.className = 'slide-dot';
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show ${labels[index]}`);
+    dot.addEventListener('click', () => show(index, true));
+    dots.appendChild(dot);
+  });
+  document.addEventListener('visibilitychange', restart);
+  show(0);
+  restart();
+};
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupOutsideGallery, { once:true });
+else setupOutsideGallery();
