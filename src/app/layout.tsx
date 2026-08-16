@@ -1,49 +1,72 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = "https://admin.omixsystems.store";
+
 export const metadata: Metadata = {
-  title: "Lang'at Gideon | Full-Stack Developer & AI Engineer",
-  description: "Portfolio of Lang'at Gideon — full-stack developer, AI engineer, and builder from Kericho, Kenya. Specializing in Next.js, React, Node.js, Supabase, and AI-powered applications.",
-  keywords: ["Lang'at Gideon", "Full-Stack Developer", "AI Engineer", "Next.js", "React", "Kenya", "Kericho", "Portfolio"],
-  authors: [{ name: "Lang'at Gideon" }],
+  metadataBase: new URL(siteUrl),
+  title: "Gideon Langat — Founder & CEO, OMIX Systems",
+  description:
+    "Gideon Langat is the Founder & CEO of OMIX Systems, a software developer and product builder creating digital products, business systems and integrated technology.",
+  keywords: [
+    "Gideon Langat",
+    "OMIX Systems",
+    "Founder and CEO",
+    "software developer",
+    "product builder",
+    "systems architect",
+    "Kenya",
+  ],
+  authors: [{ name: "Gideon Langat" }],
+  creator: "Gideon Langat",
+  alternates: { canonical: siteUrl },
   openGraph: {
-    title: "Lang'at Gideon | Full-Stack Developer & AI Engineer",
-    description: "Full-stack developer and AI engineer from Kericho, Kenya. Building modern web applications with Next.js, Supabase, and AI.",
     type: "website",
+    url: siteUrl,
+    title: "Gideon Langat — Founder & CEO, OMIX Systems",
+    description:
+      "Software developer, product builder and founder of OMIX Systems.",
+    siteName: "Gideon Langat",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gideon Langat — Founder & CEO, OMIX Systems",
+    description:
+      "Software developer, product builder and founder of OMIX Systems.",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="noise-bg antialiased">
-        {children}
+    <html lang="en">
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfilePage",
-              "name": "Lang'at Gideon - Portfolio",
-              "url": "https://admin.omixsystems.store/",
-              "about": {
-                "@type": "Person",
-                "name": "Lang'at Gideon",
-                "jobTitle": "Full-Stack Developer & AI Engineer",
-                "worksFor": {
-                  "@type": "Organization",
-                  "name": "Omix Systems",
-                  "url": "https://omixsystems.store/"
-                }
-              }
-            })
+              "@type": "Person",
+              name: "Gideon Langat",
+              jobTitle: "Founder & CEO",
+              url: siteUrl,
+              image: `${siteUrl}/images/gideon-profile.webp`,
+              worksFor: {
+                "@type": "Organization",
+                name: "OMIX Systems",
+                url: "https://omixsystems.com/",
+                description: "Optimal Modular Integration Experts",
+              },
+              sameAs: [
+                "https://omixsystems.com/",
+                "https://blog.omixsystems.store/",
+                "https://phikila.com/",
+                "https://web-jade-one-82.vercel.app/?type=series",
+              ],
+            }),
           }}
         />
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
