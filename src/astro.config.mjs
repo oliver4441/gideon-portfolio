@@ -3,15 +3,11 @@ import vercel from '@astrojs/vercel';
 
 const navigationUpgrade = {
   name: 'navigation-upgrade-styles',
-  transformIndexHtml(html) {
-    return {
-      html,
-      tags: [{
-        tag: 'link',
-        attrs: { rel: 'stylesheet', href: '/navigation-upgrade.css' },
-        injectTo: 'head'
-      }]
-    };
+  transform(code, id) {
+    if (id.endsWith('/src/styles/global.css')) {
+      return `@import url('/navigation-upgrade.css');\n${code}`;
+    }
+    return null;
   }
 };
 
