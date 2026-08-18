@@ -36,3 +36,10 @@
 @media(max-width:900px){.site-nav{height:64px;padding:0 16px;background:rgba(243,240,233,.84)}.site-nav:after{left:16px;right:16px}.site-nav .wordmark img{width:32px;height:32px}.nav-company{padding-right:58px}.hero{padding-top:98px}.hero .hero-copy:before{top:-31px}.work-item:hover{padding-left:0;padding-right:0;background:transparent}.work-item:after{display:none}.section-block,.omix-panel{scroll-margin-top:64px}}
 @media(max-width:560px){.site-nav{padding-inline:14px}.site-nav:after{left:14px;right:14px}.nav-company{padding-right:52px;font-size:10px}.hero .hero-copy:before{font-size:7px}.mobile-index-toggle{border-radius:999px;padding:11px 15px;box-shadow:0 10px 30px rgba(0,0,0,.12)}.mobile-index{background:rgba(243,240,233,.91)}.mobile-index-links a{position:relative}.mobile-index-links a:after{content:'↗';position:absolute;right:5px;font:400 15px/1 'DM Sans',system-ui,sans-serif;color:rgba(23,23,19,.25)}}
 @media(prefers-reduced-motion:reduce){.site-nav,.site-nav .wordmark img,.nav-links a:before,.work-item,.work-item:after,.work-content a{transition:none}.nav-links a.is-active:after{animation:none}}
+/* Galaxy brightness reduction: preserve the same colors and effects, but lower their visual intensity. */
+.space-scene{filter:brightness(.72)}
+.stars-a{opacity:.46}
+.stars-b{opacity:.31}
+.stars-c{opacity:.22}
+.nebula{opacity:.62}
+@media(max-width:900px){.space-scene{opacity:.68;filter:brightness(.72)}}
