@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/enhance-background.mjs && astro build",
+    "build": "node scripts/enhance-background.mjs && astro build && node scripts/postbuild-contrast.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
