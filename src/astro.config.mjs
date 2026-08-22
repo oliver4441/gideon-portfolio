@@ -6,19 +6,19 @@ const navigationUpgrade = {
   transform(code, id) {
     if (id.endsWith('/src/styles/global.css')) {
       return `@import url('/navigation-upgrade.css');\n${code}\n
-/* Contrast pass: keep the space background, switch the editorial content to a light-on-dark system, and restore portfolio imagery. */
+/* Contrast pass: keep the space background, use crisp near-white editorial text, and restore portfolio imagery. */
 :root {
-  --ink: #f5f2ea;
-  --muted: rgba(245,242,234,.76);
-  --line: rgba(245,242,234,.24);
-  --accent: #c98a3a;
+  --ink: #ffffff;
+  --muted: rgba(255,255,255,.88);
+  --line: rgba(255,255,255,.28);
+  --accent: #d69a4b;
 }
 body { color: var(--ink); }
 .space-scene:before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(2,4,11,.24);
+  background: rgba(2,4,11,.34);
   pointer-events: none;
 }
 .eyebrow,
@@ -39,29 +39,30 @@ body { color: var(--ink); }
   color: var(--muted);
 }
 .eyebrow,
-.section-label { color: rgba(245,242,234,.84); }
-h1,h2,h3,h4 { color: var(--ink); font-weight: 600; }
+.section-label { color: #ffffff; }
+h1,h2,h3,h4 { color: #ffffff; font-weight: 600; text-shadow: 0 1px 18px rgba(0,0,0,.28); }
+.hero-lede { color: #ffffff; }
 .text-link,
-.work-content a { color: var(--ink); border-color: var(--ink); }
+.work-content a { color: #ffffff; border-color: #ffffff; }
 .button.dark {
-  background: #f5f2ea;
-  color: #171713;
-  border-color: #f5f2ea;
+  background: #ffffff;
+  color: #0b0d14;
+  border-color: #ffffff;
 }
 .button.outline {
-  color: var(--ink);
-  border-color: var(--ink);
+  color: #ffffff;
+  border-color: #ffffff;
 }
-.progress { background: var(--ink); }
+.progress { background: #ffffff; }
 .section-rail .rail-label,
-.section-rail .rail-link { color: rgba(245,242,234,.78); }
+.section-rail .rail-link { color: rgba(255,255,255,.9); }
 .section-rail .rail-link:hover,
 .section-rail .rail-link.is-active {
-  color: var(--ink);
-  background: rgba(3,6,17,.72);
+  color: #ffffff;
+  background: rgba(2,4,11,.82);
 }
-.section-rail .rail-progress { background: rgba(245,242,234,.18); }
-.section-rail .rail-progress i { background: var(--ink); }
+.section-rail .rail-progress { background: rgba(255,255,255,.22); }
+.section-rail .rail-progress i { background: #ffffff; }
 .site-nav .wordmark,
 .site-nav .nav-links a,
 .site-nav .nav-company { color: #171713; }
