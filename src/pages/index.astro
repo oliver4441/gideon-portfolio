@@ -282,7 +282,7 @@ const favicon =
           </div>
           <figure class="about-photo" data-reveal>
             <div class="photo-fallback" aria-hidden="true"><b>GL</b><span>Gideon Langat</span></div>
-            <img src={hosted.portrait} alt="Gideon Langat" onerror="this.style.display='none'"/>
+            <img src={hosted.portrait} alt="Gideon Langat" loading="eager" decoding="async" referrerpolicy="no-referrer"/>
           </figure>
         </div>
 
@@ -359,7 +359,7 @@ const favicon =
               </div>
               <a class="project-shot" data-parallax="0.05" href={item.href} aria-label={`Open ${item.name}`}>
                 <div class="shot-fallback" aria-hidden="true"><b>{item.mark}</b><span>{item.name}</span></div>
-                <img src={item.shot} alt={`${item.name} — live product screenshot`} loading="lazy" onerror="this.style.display='none'"/>
+                <img src={item.shot} alt={`${item.name} — live product screenshot`} loading="eager" decoding="async" referrerpolicy="no-referrer"/>
                 <span class="shot-badge" aria-hidden="true">↗</span>
               </a>
             </article>
