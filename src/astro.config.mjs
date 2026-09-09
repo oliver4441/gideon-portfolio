@@ -15,8 +15,12 @@ const navigationUpgrade = {
 }
 html, body { color: #ffffff !important; }
 .site-backdrop:before {
-  filter: brightness(.46) contrast(1.02) saturate(.8) !important;
+  filter: brightness(.32) contrast(1.05) saturate(.75) !important;
 }
+.site-backdrop:after {
+  background: linear-gradient(180deg,rgba(2,4,11,.84) 0%,rgba(2,4,11,.76) 35%,rgba(2,4,11,.84) 70%,rgba(2,4,11,.90) 100%),radial-gradient(circle at 50% 40%,rgba(2,4,11,.30) 0%,rgba(1,2,7,.80) 100%) !important;
+}
+.omix-panel { background: #0b0d14 !important; }
 .site-nav {
   background: rgba(2,4,11,.84) !important;
   border-bottom-color: rgba(255,255,255,.22) !important;
