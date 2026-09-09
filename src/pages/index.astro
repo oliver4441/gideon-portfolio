@@ -4,14 +4,27 @@ import '../styles/global.css';
 
 const img = (name) => `/images/${name}`;
 
-// Hosted image URLs (Pinata/IPFS) for the About portrait and project screenshots.
-const hosted = {
-  portrait: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafkreidffq6dhbfaqjc7i7p5fwoyse33gqfat5s6o6hx2lz3ordbge2foq',
-  veyra: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafybeiabyp4blvpefwgikq62wuhd6ljruou3f7e4qa4o5mcpoyo3ujp36a',
-  phikila: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafkreihx2wq62w6e7ef2fxajjaanoww6wteyhpe2hmn3j4bo5oy5rrrutq',
-  omixMarketplace: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafybeihhgcjijiw4bk5z2fzcnipvhxeircz73vqn5vxdgp54ohmj6gwuwq',
-  omixSystems: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafkreidrbjrbggk5gqksvtueqj63p2m5e7frucimop2zru2wxer4o6dsky',
+// IPFS content identifiers (pinned in Pinata) for the About portrait and project screenshots.
+const cids = {
+  portrait: 'bafkreidffq6dhbfaqjc7i7p5fwoyse33gqfat5s6o6hx2lz3ordbge2foq',
+  veyra: 'bafybeiabyp4blvpefwgikq62wuhd6ljruou3f7e4qa4o5mcpoyo3ujp36a',
+  phikila: 'bafkreihx2wq62w6e7ef2fxajjaanoww6wteyhpe2hmn3j4bo5oy5rrrutq',
+  omixMarketplace: 'bafybeihhgcjijiw4bk5z2fzcnipvhxeircz73vqn5vxdgp54ohmj6gwuwq',
+  omixSystems: 'bafkreidrbjrbggk5gqksvtueqj63p2m5e7frucimop2zru2wxer4o6dsky',
 };
+
+// Public gateways first — they serve pinned content without auth.
+// The account's dedicated mypinata gateway needs an auth header browsers cannot
+// send, so it only acts as a last resort. The same chain lives in the inline
+// gateway-fallback script at the bottom of this page — keep the two in sync.
+const gateways = [
+  'https://gateway.pinata.cloud/ipfs/',
+  'https://ipfs.io/ipfs/',
+  'https://dweb.link/ipfs/',
+  'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/',
+];
+
+const ipfs = (cid) => gateways[0] + cid;
 
 // Featured products — the live projects this portfolio points at.
 const work = [
@@ -22,7 +35,7 @@ const work = [
     title: 'A cinematic streaming platform.',
     body: 'A product exploring discovery, presentation and the infrastructure required to turn a media idea into a usable platform — trending titles, ratings and a full catalogue of movies and series.',
     href: 'https://web-jade-one-82.vercel.app/?type=series',
-    shot: hosted.veyra,
+    cid: cids.veyra,
     mark: 'V',
     tags: ['Streaming', 'TMDB', 'PWA'],
   },
@@ -33,7 +46,7 @@ const work = [
     title: 'School management, treated as a system.',
     body: 'A connected platform for school operations — timetables, students & staff, attendance, academics and reporting — and the information institutions rely on every day.',
     href: 'https://phikila.com/',
-    shot: hosted.phikila,
+    cid: cids.phikila,
     mark: 'P',
     tags: ['EdTech', 'School operations', 'Platform'],
   },
@@ -44,7 +57,7 @@ const work = [
     title: 'A local marketplace built for Kericho.',
     body: 'OMIX’s flagship commerce platform, connecting local buyers and sellers with an online marketplace designed around the Kenyan market — including M-Pesa-enabled commerce.',
     href: 'https://market.omixsystems.store/',
-    shot: hosted.omixMarketplace,
+    cid: cids.omixMarketplace,
     mark: 'OM',
     tags: ['Commerce', 'M-Pesa', 'Marketplace'],
   },
@@ -55,7 +68,7 @@ const work = [
     title: 'The company behind the work.',
     body: 'Optimal Modular Integration Experts. A software company built around products, systems and integrations — SaaS platforms, business systems, websites and APIs.',
     href: 'https://omixsystems.store/',
-    shot: hosted.omixSystems,
+    cid: cids.omixSystems,
     mark: 'OS',
     tags: ['SaaS', 'APIs', 'Integrations'],
   },
@@ -282,7 +295,7 @@ const favicon =
           </div>
           <figure class="about-photo" data-reveal>
             <div class="photo-fallback" aria-hidden="true"><b>GL</b><span>Gideon Langat</span></div>
-            <img src={hosted.portrait} alt="Gideon Langat" onerror="this.style.display='none'"/>
+            <img src={ipfs(cids.portrait)} data-ipfs={cids.portrait} alt="Gideon Langat" decoding="async"/>
           </figure>
         </div>
 
@@ -359,7 +372,7 @@ const favicon =
               </div>
               <a class="project-shot" data-parallax="0.05" href={item.href} aria-label={`Open ${item.name}`}>
                 <div class="shot-fallback" aria-hidden="true"><b>{item.mark}</b><span>{item.name}</span></div>
-                <img src={item.shot} alt={`${item.name} — live product screenshot`} loading="lazy" onerror="this.style.display='none'"/>
+                <img src={ipfs(item.cid)} data-ipfs={item.cid} alt={`${item.name} — live product screenshot`} loading="lazy" decoding="async"/>
                 <span class="shot-badge" aria-hidden="true">↗</span>
               </a>
             </article>
@@ -584,6 +597,34 @@ const favicon =
           renderSummary();
           setTimeout(() => show(4), 400);
         });
+      })();
+
+      /* IPFS gateway fallback chain — the about portrait and project
+         screenshots are pinned on IPFS. We start from the first public gateway
+         (rendered in the src) and, if a gateway fails, step the <img> through
+         the rest before giving up and revealing the monogram fallback.
+         Keep this list in sync with the `gateways` array in the frontmatter. */
+      ;(() => {
+        const gateways = [
+          'https://gateway.pinata.cloud/ipfs/',
+          'https://ipfs.io/ipfs/',
+          'https://dweb.link/ipfs/',
+          'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/',
+        ];
+        const arm = (img) => {
+          const cid = img.dataset.ipfs;
+          if (!cid) return;
+          let idx = 0;
+          const fail = () => {
+            idx += 1;
+            if (idx < gateways.length) img.src = gateways[idx] + cid;
+            else img.style.display = 'none';
+          };
+          img.addEventListener('error', fail);
+          // The first gateway may have already failed before we could listen.
+          if (img.complete && img.naturalWidth === 0) fail();
+        };
+        document.querySelectorAll('img[data-ipfs]').forEach(arm);
       })();
     </script>
   </body>
