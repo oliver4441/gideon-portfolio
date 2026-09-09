@@ -1,0 +1,63 @@
+name: Fix hosted portfolio images
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-images:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Patch hosted image loading
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/pages/index.astro')
+          s = p.read_text()
+          old_project = '<img src={item.shot} alt={`${item.name} — live product screenshot`} loading="lazy" onerror="this.style.display=\'none\'"/>'
+          new_project = '<img src={item.shot} alt={`${item.name} — live product screenshot`} loading="eager" decoding="async" referrerpolicy="no-referrer"/>'
+          old_portrait = '<img src={hosted.portrait} alt="Gideon Langat" onerror="this.style.display=\'none\'"/>'
+          new_portrait = '<img src={hosted.portrait} alt="Gideon Langat" loading="eager" decoding="async" referrerpolicy="no-referrer"/>'
+          changed = False
+          for old, new in ((old_project, new_project), (old_portrait, new_portrait)):
+              if old in s:
+                  s = s.replace(old, new)
+                  changed = True
+          if not changed:
+              print('No matching image markup found; nothing to change.')
+          else:
+              p.write_text(s)
+              print('Patched hosted Pinata image loading.')
+          PY
+
+      - name: Commit patch
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro
+          git commit -m "Fix Pinata hosted image rendering"
+          git push
+
+      - name: Remove temporary workflow
+        if: success()
+        run: |
+          git rm .github/workflows/fix-hosted-images.yml || true
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Remove temporary image fix workflow"
+          git push
+
+# Temporary trigger commit to apply the image patch safely without replacing the full Astro file.
