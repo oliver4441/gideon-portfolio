@@ -6,4 +6,9 @@ export default defineConfig({
   site: 'https://admin.omixsystems.store',
   output: 'server',
   compressHTML: true,
+  vite: {
+    server: {
+      allowedHosts: ['.e2b.app'],
+    },
+  },
 });

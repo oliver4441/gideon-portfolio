@@ -6,7 +6,7 @@ const navigationUpgrade = {
   transform(code, id) {
     if (id.includes('/src/styles/global.css')) {
       return `@import url('/navigation-upgrade.css');\n${code}\n
-/* Final production contrast pass: all portfolio text is white over the space background. */
+/* Final production contrast pass: all portfolio text is white over the photographic background. */
 :root {
   --ink: #ffffff;
   --muted: #ffffff;
@@ -14,12 +14,8 @@ const navigationUpgrade = {
   --accent: #d69a4b;
 }
 html, body { color: #ffffff !important; }
-.space-scene:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(2,4,11,.40);
-  pointer-events: none;
+.site-backdrop:before {
+  filter: brightness(.46) contrast(1.02) saturate(.8) !important;
 }
 .site-nav {
   background: rgba(2,4,11,.84) !important;
