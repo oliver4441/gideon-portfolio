@@ -4,6 +4,13 @@ import '../styles/global.css';
 
 const img = (name) => `/images/${name}`;
 
+// Hosted image URLs (Pinata/IPFS) for the About portrait and project screenshots.
+const hosted = {
+  portrait: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafkreidffq6dhbfaqjc7i7p5fwoyse33gqfat5s6o6hx2lz3ordbge2foq',
+  veyra: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafybeiabyp4blvpefwgikq62wuhd6ljruou3f7e4qa4o5mcpoyo3ujp36a',
+  phikila: 'https://sapphire-electrical-fly-778.mypinata.cloud/ipfs/bafkreihx2wq62w6e7ef2fxajjaanoww6wteyhpe2hmn3j4bo5oy5rrrutq',
+};
+
 // Featured products — the live projects this portfolio points at.
 const work = [
   {
@@ -13,7 +20,7 @@ const work = [
     title: 'A cinematic streaming platform.',
     body: 'A product exploring discovery, presentation and the infrastructure required to turn a media idea into a usable platform — trending titles, ratings and a full catalogue of movies and series.',
     href: 'https://web-jade-one-82.vercel.app/?type=series',
-    shot: '/images/projects/veyra.webp',
+    shot: hosted.veyra,
     mark: 'V',
     tags: ['Streaming', 'TMDB', 'PWA'],
   },
@@ -24,7 +31,7 @@ const work = [
     title: 'School management, treated as a system.',
     body: 'A connected platform for school operations — timetables, students & staff, attendance, academics and reporting — and the information institutions rely on every day.',
     href: 'https://phikila.com/',
-    shot: '/images/projects/phikila.webp',
+    shot: hosted.phikila,
     mark: 'P',
     tags: ['EdTech', 'School operations', 'Platform'],
   },
@@ -273,7 +280,7 @@ const favicon =
           </div>
           <figure class="about-photo" data-reveal>
             <div class="photo-fallback" aria-hidden="true"><b>GL</b><span>Gideon Langat</span></div>
-            <img src={img('gideon-profile.webp')} alt="Gideon Langat" onerror="this.style.display='none'"/>
+            <img src={hosted.portrait} alt="Gideon Langat" onerror="this.style.display='none'"/>
           </figure>
         </div>
 
