@@ -1,72 +1,581 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
-const img=(name)=>`/images/${name}`;
-const work=[{n:'01',name:'Veyra',type:'Product · Media',title:'A cinematic streaming platform.',body:'A product exploring discovery, presentation and the infrastructure required to turn a media idea into a usable platform.',href:'https://web-jade-one-82.vercel.app/?type=series'},{n:'02',name:'Phikila',type:'Product · Education',title:'School management, treated as a system.',body:'A connected platform for school operations, academic workflows and the information institutions rely on every day.',href:'https://phikila.com/'},{n:'03',name:'OMIX Marketplace',type:'Product · Commerce · OMIX',title:'A local marketplace built for Kericho.',body:'OMIX’s flagship commerce platform, connecting local buyers and sellers with an online marketplace designed around the Kenyan market, including M-Pesa-enabled commerce.',href:'https://market.omixsystems.store/'},{n:'04',name:'OMIX Systems',type:'Company · Software',title:'The company behind the work.',body:'Optimal Modular Integration Experts. A software company built around products, systems and integrations.',href:'https://omixsystems.store/'}];
-const capabilities=[['01','Product engineering','From rough idea to working product, with architecture designed to survive beyond an MVP.'],['02','Systems & integrations','APIs, data, authentication, payments and services designed to connect rather than become islands.'],['03','Cloud & infrastructure','Deployment, environments and operational foundations that keep products moving.'],['04','AI & automation','Practical use of models, agents and automation where they create leverage instead of noise.']];
----
-<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="theme-color" content="#04060c"/><title>Gideon Langat — Founder & CEO, OMIX Systems</title><meta name="description" content="Gideon Langat is the Founder & CEO of OMIX Systems, a software developer and product builder."/><link rel="canonical" href="https://admin.omixsystems.store/"/><link rel="preload" as="image" href="/images/site-background.jpg" fetchpriority="high"/><link rel="icon" type="image/webp" href={img('gideon-logo.webp')}/><link rel="apple-touch-icon" href={img('gideon-logo.webp')}/><meta property="og:type" content="website"/><meta property="og:url" content="https://admin.omixsystems.store/"/><meta property="og:title" content="Gideon Langat — Founder & CEO, OMIX Systems"/><meta property="og:description" content="Software developer, product builder and founder of OMIX Systems."/><meta property="og:image" content="https://admin.omixsystems.store/images/gideon-profile.webp"/><ClientRouter/><style is:global>
-.section-rail{position:fixed;z-index:45;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:10px 0;mix-blend-mode:normal}.rail-label{font:600 9px/1 'DM Sans',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.75);margin:0 9px 9px 0}.rail-link{position:relative;display:grid;grid-template-columns:28px auto;align-items:center;gap:8px;min-width:86px;padding:7px 9px;border-radius:2px;color:rgba(255,255,255,.72);font-size:10px;letter-spacing:.08em;text-transform:uppercase;transition:color .25s ease,background .25s ease,transform .25s ease}.rail-link span{font-size:9px;opacity:.65;text-align:right}.rail-link strong{font-weight:500}.rail-link:before{content:'';position:absolute;right:0;top:0;bottom:0;width:2px;background:var(--ink);transform:scaleY(0);transform-origin:center;transition:transform .25s ease}.rail-link:hover,.rail-link.is-active{color:var(--ink);background:rgba(2,4,11,.86);transform:translateX(-3px)}.rail-link.is-active:before{transform:scaleY(1)}.rail-progress{position:absolute;right:0;top:38px;bottom:10px;width:1px;background:rgba(255,255,255,.24);pointer-events:none}.rail-progress i{position:absolute;inset:0 0 auto;width:1px;height:100%;background:var(--ink);transform:scaleY(0);transform-origin:top;transition:transform .45s cubic-bezier(.2,.8,.2,1)}.nav-links a.is-active{position:relative;color:var(--ink)}.nav-links a.is-active:after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:1px;background:var(--ink)}
-@media(max-width:1100px){.section-rail{right:10px}.rail-link{min-width:76px}}
-@media(max-width:900px){.section-rail{display:none}.mobile-index-toggle{position:fixed;z-index:60;right:14px;bottom:16px;display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid rgba(255,255,255,.24);background:rgba(2,4,11,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);font:600 11px/1 'DM Sans',system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 25px rgba(0,0,0,.08)}.mobile-index-toggle span{font-size:14px}.mobile-index{position:fixed;z-index:59;inset:0;display:flex;flex-direction:column;padding:24px 20px;background:rgba(2,4,11,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .25s ease,transform .25s ease,visibility .25s}.index-open .mobile-index{opacity:1;visibility:visible;transform:none}.mobile-index-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line);font:600 11px/1 'DM Sans',system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase}.mobile-index-head button{border:0;background:transparent;color:var(--ink);font-size:30px;line-height:1;padding:0}.mobile-index-links{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:12px}.mobile-index-links a{display:grid;grid-template-columns:38px 1fr;align-items:center;padding:17px 4px;border-bottom:1px solid var(--line);font:500 clamp(1.25rem,5vw,1.8rem)/1 'Playfair Display',Georgia,serif;color:var(--ink);transition:padding .2s ease}.mobile-index-links a span{font:500 10px/1 'DM Sans',system-ui,sans-serif;color:var(--muted)}.mobile-index-links a.is-active{padding-left:10px}.mobile-index-links a.is-active span{color:var(--accent)}.index-open{overflow:hidden}.nav-company{padding-right:54px}}
-@media(max-width:560px){.mobile-index-links{grid-template-columns:1fr}.mobile-index-links a{padding-block:14px}.mobile-index-toggle{bottom:13px;right:12px}}
-@media(prefers-reduced-motion:reduce){.rail-link,.mobile-index,.mobile-index-links a{transition:none}}
 
-.button.gold{background:#d69a4b;border-color:#d69a4b;color:#0b0d14}
-.button.gold:hover{background:#e2a75c;border-color:#e2a75c}
-button.button{font-family:'DM Sans',system-ui,sans-serif;cursor:pointer}
-.schedule-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(1,2,7,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
-.schedule-overlay.is-open{opacity:1;visibility:visible}
-.schedule-modal{position:relative;width:min(560px,100%);max-height:calc(100svh - 40px);overflow:auto;background:#0b0d14;border:1px solid rgba(255,255,255,.22);padding:34px 34px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5);transform:translateY(14px);transition:transform .3s ease}
-.schedule-overlay.is-open .schedule-modal{transform:none}
-.schedule-close{position:absolute;top:10px;right:14px;border:0;background:transparent;color:#fff;font-size:30px;line-height:1;cursor:pointer;opacity:.7}
-.schedule-close:hover{opacity:1}
-.schedule-progress{height:2px;background:rgba(255,255,255,.16);margin-bottom:16px}
-.schedule-progress i{display:block;height:100%;width:33.33%;background:#d69a4b;transition:width .3s ease}
-.schedule-step{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 8px}
-.schedule-modal h3{font-size:clamp(1.6rem,4vw,2.1rem);margin:0 0 22px;color:#fff}
-.schedule-pane{display:none}
-.schedule-pane.is-active{display:block}
-.schedule-options{display:grid;gap:10px}
-.schedule-option{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;text-align:left;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.18);color:#fff;cursor:pointer;transition:border-color .2s,background .2s;font-family:'DM Sans',system-ui,sans-serif}
-.schedule-option:hover{border-color:rgba(255,255,255,.45)}
-.schedule-option.is-selected{border-color:#d69a4b;background:rgba(214,154,75,.10)}
-.schedule-option .dot{width:14px;height:14px;margin-top:4px;border:1px solid rgba(255,255,255,.5);border-radius:50%;position:relative}
-.schedule-option.is-selected .dot{border-color:#d69a4b}
-.schedule-option.is-selected .dot:after{content:'';position:absolute;inset:3px;border-radius:50%;background:#d69a4b}
-.schedule-option strong{display:block;font-size:15px;font-weight:600}
-.schedule-option span{font-size:13px;color:rgba(255,255,255,.65)}
-.schedule-field{display:block;margin-bottom:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65)}
-.schedule-field input,.schedule-field textarea{display:block;width:100%;margin-top:8px;padding:13px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);color:#fff;font:400 16px/1.4 'DM Sans',system-ui,sans-serif;letter-spacing:0;text-transform:none}
-.schedule-field textarea{min-height:110px;resize:vertical}
-.schedule-field input:focus,.schedule-field textarea:focus{outline:none;border-color:#d69a4b}
-.schedule-field input::placeholder,.schedule-field textarea::placeholder{color:rgba(255,255,255,.35)}
-.schedule-error{color:#f0a35e;font-size:13px;margin:12px 0 0}
-.schedule-summary{margin:18px 0 4px;padding:6px 16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);font-size:14px;color:rgba(255,255,255,.85)}
-.schedule-summary div{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.schedule-summary div:last-child{border-bottom:0}
-.schedule-summary span{color:rgba(255,255,255,.55)}
-.schedule-summary strong{font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis}
-.schedule-note{font-size:13px;color:rgba(255,255,255,.6);margin:14px 0 0}
-.schedule-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}
-.schedule-nav .button{min-width:170px}
-.schedule-done-text{font-size:15px;color:rgba(255,255,255,.85);margin:0 0 8px}
-@media(max-width:560px){.schedule-modal{padding:26px 20px 22px}.schedule-nav .button{min-width:0;flex:1}}
-@media(prefers-reduced-motion:reduce){.schedule-overlay,.schedule-modal,.schedule-progress i{transition:none}}
-</style></head>
-<body><div class="site-backdrop" aria-hidden="true"></div><div class="progress" aria-hidden="true"></div>
-<nav class="site-nav"><a href="#top" class="wordmark magnetic"><img src={img('gideon-logo.webp')} alt="Gideon Langat"/><span>GIDEON<span>.</span></span></a><div class="nav-links"><a href="#work" data-top-link="work">Work</a><a href="#notes" data-top-link="notes">Notes</a><a href="#about" data-top-link="about">About</a><a href="#contact" data-top-link="contact">Contact</a></div><a class="nav-company magnetic" href="https://omixsystems.store/">OMIX Systems ↗</a></nav>
-<nav class="section-rail" aria-label="Page sections"><div class="rail-label">INDEX</div><a class="rail-link is-active" href="#top" data-section="top"><span>00</span><strong>Home</strong></a><a class="rail-link" href="#about" data-section="about"><span>01</span><strong>About</strong></a><a class="rail-link" href="#work" data-section="work"><span>02</span><strong>Work</strong></a><a class="rail-link" href="#current" data-section="current"><span>03</span><strong>Now</strong></a><a class="rail-link" href="#build" data-section="build"><span>04</span><strong>Build</strong></a><a class="rail-link" href="#notes" data-section="notes"><span>05</span><strong>Notes</strong></a><a class="rail-link" href="#life" data-section="life"><span>06</span><strong>Life</strong></a><a class="rail-link" href="#omix" data-section="omix"><span>07</span><strong>OMIX</strong></a><a class="rail-link" href="#contact" data-section="contact"><span>08</span><strong>Contact</strong></a><div class="rail-progress"><i></i></div></nav>
-<button class="mobile-index-toggle" type="button" aria-expanded="false" aria-controls="mobile-index">Index <span>☰</span></button><nav id="mobile-index" class="mobile-index" aria-label="Mobile page sections"><div class="mobile-index-head"><span>Navigate</span><button type="button" data-close-index aria-label="Close navigation">×</button></div><div class="mobile-index-links"><a href="#top" data-section="top"><span>00</span>Home</a><a href="#about" data-section="about"><span>01</span>About</a><a href="#work" data-section="work"><span>02</span>Work</a><a href="#current" data-section="current"><span>03</span>Now</a><a href="#build" data-section="build"><span>04</span>Build</a><a href="#notes" data-section="notes"><span>05</span>Notes</a><a href="#life" data-section="life"><span>06</span>Life</a><a href="#omix" data-section="omix"><span>07</span>OMIX</a><a href="#contact" data-section="contact"><span>08</span>Contact</a></div></nav>
-<main id="top"><section class="hero editorial-wrap snap-section" data-reveal data-section-target="top"><div class="hero-copy"><p class="eyebrow">Founder & CEO · OMIX Systems · Kenya</p><h1>I build products,<br/><em>systems</em> and companies.</h1><p class="hero-lede">In that order.</p><p class="hero-intro">I'm Gideon Langat, a software developer and product builder. I lead OMIX Systems, where I turn ideas into digital products and the systems behind them.</p><div class="hero-actions"><a class="button dark magnetic" href="#work">See the work</a><a class="text-link" href="https://omixsystems.store/">Explore OMIX →</a></div></div><figure class="hero-photo depth" data-parallax="0.12"><picture><source media="(max-width: 900px)" srcset={img('gideon-logo.webp')}/><img src={img('gideon-profile.webp')} alt="Gideon Langat" fetchpriority="high"/></picture><figcaption>GIDEON LANGAT · 2026</figcaption></figure></section>
-<section id="about" class="editorial-wrap section-block snap-section" data-reveal data-section-target="about"><div class="section-label">01 / Hello</div><div class="two-column"><h2>I like building things that connect.</h2><div class="prose"><p>Software is rarely useful in isolation. The product, the data, the people using it and the services underneath all have to make sense together.</p><p>That is the thinking behind my work. I move between engineering, product decisions and the business questions around them — building systems that are practical first and ambitious second.</p><p>OMIX Systems is the company I am building around that philosophy.</p></div></div></section>
-<section id="work" class="editorial-wrap section-block snap-section" data-reveal data-section-target="work"><div class="section-label">02 / Selected product work</div><div class="work-list">{work.map(item=><article class="work-item depth" data-parallax="0.06"><div class="work-index">{item.n}</div><div class="work-content"><p class="eyebrow">{item.type}</p><h3>{item.name}</h3><h4>{item.title}</h4><p>{item.body}</p><a class="magnetic" href={item.href}>View project <span>↗</span></a></div></article>)}</div></section>
-<section id="current" class="editorial-wrap section-block snap-section" data-reveal data-section-target="current"><div class="section-label">03 / Currently building</div><div class="current-grid"><h2>Not everything needs to be finished to be worth building.</h2><div class="current-copy"><p>Veyra. Phikila. OMIX Marketplace. OMIX Journal. New experiments. Infrastructure that supports them.</p><p>I keep a portfolio because the work changes. This is a record of what is being built now, not a museum of finished projects.</p><a class="text-link" href="https://blog.omixsystems.store/">Read the journal →</a></div></div></section>
-<section id="build" class="editorial-wrap section-block snap-section" data-reveal data-section-target="build"><div class="section-label">04 / How I build</div><div class="capability-list">{capabilities.map(([n,title,text])=><div class="capability"><span>{n}</span><h3>{title}</h3><p>{text}</p></div>)}</div></section>
-<section id="notes" class="editorial-wrap section-block snap-section" data-reveal data-section-target="notes"><div class="section-label">05 / Notes from building OMIX</div><div class="two-column notes-head"><h2>Things I'm thinking about.</h2><p class="prose">Writing is where I slow down enough to explain the decisions behind the products.</p></div><div class="notes-list"><a href="https://blog.omixsystems.store/" class="note-row"><span>Engineering</span><strong>Why modular systems matter</strong><span>↗</span></a><a href="https://blog.omixsystems.store/" class="note-row"><span>Founder notes</span><strong>Building products through OMIX</strong><span>↗</span></a><a href="https://blog.omixsystems.store/" class="note-row"><span>Product</span><strong>What makes software useful?</strong><span>↗</span></a></div></section>
-<section id="life" class="editorial-wrap section-block snap-section" data-reveal data-section-target="life"><div class="section-label">06 / Outside the code</div><div class="life-grid"><div class="life-copy"><h2>There's more to building than sitting at a screen.</h2><p>These are the parts of life that do not fit neatly into a CV — time outside, games, experiments, and the people and places that keep the work in perspective.</p></div><div class="life-images"><figure class="depth" data-parallax="0.10"><img src={img('gideon-outdoors.webp')} alt="Gideon outdoors" loading="lazy"/></figure><figure class="depth" data-parallax="0.16"><img src={img('gideon-gaming.webp')} alt="Gideon gaming" loading="lazy"/></figure><figure class="depth wide" data-parallax="0.08"><img src={img('gideon-workspace.webp')} alt="Gideon workspace" loading="lazy"/></figure></div></div></section>
-<section id="omix" class="omix-panel snap-section" data-reveal data-section-target="omix"><div class="editorial-wrap"><p class="eyebrow">07 / The company behind the work</p><h2>OMIX Systems</h2><p>Optimal Modular Integration Experts.</p><p class="omix-description">I founded OMIX to build digital products and integrated software systems that solve practical problems.</p><a class="button light magnetic" href="https://omixsystems.store/">Visit OMIX Systems ↗</a></div></section><section id="contact" class="editorial-wrap contact-section section-block snap-section" data-reveal data-section-target="contact"><div class="section-label">08 / Let's build something</div><h2>Have an idea worth making?</h2><p>Tell me what you are trying to build. If it makes sense, we can work out the system behind it.</p><div class="contact-actions"><button class="button gold magnetic" type="button" data-open-schedule>Schedule a meeting</button><a class="button dark magnetic" href="https://omixsystems.store/">Build with OMIX</a><a class="button outline magnetic" href="mailto:hello@omixsystems.store">Email Gideon</a></div></section></main>
-<footer class="site-footer editorial-wrap"><div><strong>GIDEON LANGAT</strong><span>Founder & CEO · OMIX Systems</span></div><div><a href="https://omixsystems.store/">OMIX Systems</a><a href="https://blog.omixsystems.store/">Journal</a><a href="https://github.com/oliver4441">GitHub</a></div><small>© 2026 Gideon Langat. Built through OMIX Systems.</small></footer>
-<div class="schedule-overlay" id="scheduleOverlay"><div class="schedule-modal" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle"><button class="schedule-close" type="button" data-schedule-close aria-label="Close scheduling">\u00d7</button><div class="schedule-progress"><i id="scheduleBar"></i></div><p class="schedule-step" id="scheduleStepLabel">Step 1 of 3</p><h3 id="scheduleTitle">What would you like to talk about?</h3><div class="schedule-pane is-active" data-pane="1"><div class="schedule-options" role="radiogroup" aria-label="Meeting topic"><button type="button" class="schedule-option" data-topic="A new product idea"><span class="dot" aria-hidden="true"></span><span><strong>A product idea</strong><span>You have something you want to build.</span></span></button><button type="button" class="schedule-option" data-topic="A project with OMIX"><span class="dot" aria-hidden="true"></span><span><strong>A project with OMIX</strong><span>Scope, quote or ongoing work.</span></span></button><button type="button" class="schedule-option" data-topic="Partnership"><span class="dot" aria-hidden="true"></span><span><strong>Partnership</strong><span>Collaborations and business.</span></span></button><button type="button" class="schedule-option" data-topic="Just a conversation"><span class="dot" aria-hidden="true"></span><span><strong>Just a conversation</strong><span>Advice, questions, or saying hi.</span></span></button></div><p class="schedule-error" hidden>Please pick a topic to continue.</p><div class="schedule-nav"><span></span><button class="button dark" type="button" data-next>Continue \u2192</button></div></div><div class="schedule-pane" data-pane="2"><label class="schedule-field">Your name<input id="scheduleName" type="text" name="name" placeholder="Jane Doe" autocomplete="name"/></label><label class="schedule-field">Email address<input id="scheduleEmail" type="email" name="email" placeholder="jane@example.com" autocomplete="email"/></label><p class="schedule-error" hidden>Please add your name and a valid email so I can reach you.</p><div class="schedule-nav"><button class="text-link" type="button" data-back>\u2190 Back</button><button class="button dark" type="button" data-next>Continue \u2192</button></div></div><div class="schedule-pane" data-pane="3"><label class="schedule-field">Anything I should know first? <span style="text-transform:none;letter-spacing:0">(optional)</span><textarea id="scheduleNotes" placeholder="A sentence or two about what you want to discuss\u2026"></textarea></label><div class="schedule-summary" id="scheduleSummary"></div><div class="schedule-nav"><button class="text-link" type="button" data-back>\u2190 Back</button><a class="button gold" id="scheduleGo" href="https://calendly.com/twistedoliver211fs/discussion" target="_blank" rel="noopener">Pick a time \u2192</a></div><p class="schedule-note">You will choose a day and time on the next screen \u2014 your details carry over automatically.</p></div><div class="schedule-pane" data-pane="4"><p class="schedule-done-text">My calendar should now be open in a new tab with your details already filled in. Pick a time that suits you \u2014 I look forward to talking.</p><div class="schedule-nav"><a class="text-link" id="scheduleReopen" href="https://calendly.com/twistedoliver211fs/discussion" target="_blank" rel="noopener">Reopen calendar</a><button class="button outline" type="button" data-schedule-close>Done</button></div></div></div></div>
-<script is:inline>const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const mobile=matchMedia('(max-width: 900px)');const reveal=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('is-visible')}),{threshold:mobile.matches?.08:.14,rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('[data-reveal]').forEach(e=>reveal.observe(e));const sections=[...document.querySelectorAll('[data-section-target]')],railLinks=[...document.querySelectorAll('.rail-link')],mobileLinks=[...document.querySelectorAll('.mobile-index-links a')],topLinks=[...document.querySelectorAll('[data-top-link]')];const setActive=id=>{railLinks.forEach(a=>a.classList.toggle('is-active',a.dataset.section===id));mobileLinks.forEach(a=>a.classList.toggle('is-active',a.dataset.section===id));topLinks.forEach(a=>a.classList.toggle('is-active',a.dataset.topLink===id));const progress=document.querySelector('.rail-progress i');if(progress){progress.style.transform=`scaleY(${Math.max(0,(sections.findIndex(s=>s.dataset.sectionTarget===id)+1)/sections.length)})`}};const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)setActive(entry.target.dataset.sectionTarget)}),{rootMargin:'-38% 0px -52% 0px',threshold:0});sections.forEach(s=>sectionObserver.observe(s));document.querySelectorAll('.rail-link,.mobile-index-links a,.nav-links a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('index-open');document.querySelector('.mobile-index-toggle')?.setAttribute('aria-expanded','false')}));const toggle=document.querySelector('.mobile-index-toggle'),close=document.querySelector('[data-close-index]');toggle?.addEventListener('click',()=>{const open=!document.body.classList.contains('index-open');document.body.classList.toggle('index-open',open);toggle.setAttribute('aria-expanded',String(open))});close?.addEventListener('click',()=>{document.body.classList.remove('index-open');toggle?.setAttribute('aria-expanded','false')});const p=[...document.querySelectorAll('[data-parallax]')];let ticking=false;const update=()=>{if(reduce||mobile.matches){document.documentElement.style.setProperty('--scroll-y',`${scrollY}px`);return}const vh=innerHeight;p.forEach(el=>{const r=el.getBoundingClientRect(),v=Number(el.dataset.parallax||0),o=((r.top+r.height/2-vh/2)/vh)*-70*v;el.style.setProperty('--parallax-y',`${o}px`);el.style.setProperty('--parallax-r',`${o*.025}deg`)});document.documentElement.style.setProperty('--scroll-y',`${scrollY}px`);ticking=false};addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});addEventListener('resize',update,{passive:true});update();document.querySelectorAll('.magnetic').forEach(el=>{el.addEventListener('pointermove',e=>{if(reduce||mobile.matches)return;const r=el.getBoundingClientRect();el.style.setProperty('--mx',`${(e.clientX-r.left-r.width/2)*.12}px`);el.style.setProperty('--my',`${(e.clientY-r.top-r.height/2)*.12}px`)});el.addEventListener('pointerleave',()=>{el.style.setProperty('--mx','0px');el.style.setProperty('--my','0px')})});;(()=>{const CAL='https://calendly.com/twistedoliver211fs/discussion';const overlay=document.getElementById('scheduleOverlay');if(!overlay)return;const title=document.getElementById('scheduleTitle'),stepLabel=document.getElementById('scheduleStepLabel'),bar=document.getElementById('scheduleBar');const panes=[...overlay.querySelectorAll('.schedule-pane')];const state={topic:'',name:'',email:'',notes:''};let step=1;const titles={1:'What would you like to talk about?',2:'How do I reach you?',3:'Anything I should know first?',4:'One last step \u2014 pick a time.'};const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');function renderSummary(){const rows=[['Topic',state.topic],['Name',state.name],['Email',state.email]];if(state.notes)rows.push(['Notes',state.notes.length>90?state.notes.slice(0,90)+'\u2026':state.notes]);document.getElementById('scheduleSummary').innerHTML=rows.map(([k,v])=>'<div><span>'+k+'</span><strong>'+esc(v)+'</strong></div>').join('');const a1=(state.topic+(state.notes?' \u2014 '+state.notes:'')).slice(0,500);const url=CAL+'?name='+encodeURIComponent(state.name)+'&email='+encodeURIComponent(state.email)+'&a1='+encodeURIComponent(a1);document.getElementById('scheduleGo').href=url;document.getElementById('scheduleReopen').href=url;}function show(n){step=n;panes.forEach(p=>p.classList.toggle('is-active',+p.dataset.pane===n));title.textContent=titles[n];stepLabel.textContent=n<4?('Step '+n+' of 3'):'Almost done';bar.style.width=(n>=4?100:n*33.34)+'%';panes[n-1].querySelectorAll('.schedule-error').forEach(e=>e.hidden=true);if(n===3)renderSummary();const f=panes[n-1].querySelector('input,.schedule-option');if(f&&n<3)f.focus({preventScroll:true});}function openM(){overlay.classList.add('is-open');document.body.style.overflow='hidden';show(1);}function closeM(){overlay.classList.remove('is-open');document.body.style.overflow='';}document.querySelectorAll('[data-open-schedule]').forEach(b=>b.addEventListener('click',openM));overlay.querySelectorAll('[data-schedule-close]').forEach(b=>b.addEventListener('click',closeM));overlay.addEventListener('click',e=>{if(e.target===overlay)closeM();});addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('is-open'))closeM();});overlay.querySelectorAll('.schedule-option').forEach(o=>o.addEventListener('click',()=>{overlay.querySelectorAll('.schedule-option').forEach(x=>x.classList.remove('is-selected'));o.classList.add('is-selected');state.topic=o.dataset.topic;o.closest('.schedule-pane').querySelector('.schedule-error').hidden=true;}));overlay.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{const pane=panes[step-1],err=pane.querySelector('.schedule-error');if(step===1&&!state.topic){err.hidden=false;return;}if(step===2){state.name=document.getElementById('scheduleName').value.trim();state.email=document.getElementById('scheduleEmail').value.trim();if(!state.name||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)){err.hidden=false;return;}}show(step+1);}));overlay.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>show(step-1)));document.getElementById('scheduleGo').addEventListener('click',()=>{state.notes=document.getElementById('scheduleNotes').value.trim();renderSummary();setTimeout(()=>show(4),400);});})();
-</script></body></html>
+const img = (name) => `/images/${name}`;
+
+// Featured products — the live projects this portfolio points at.
+const work = [
+  {
+    n: '01',
+    name: 'Veyra',
+    type: 'Product · Streaming',
+    title: 'A cinematic streaming platform.',
+    body: 'A product exploring discovery, presentation and the infrastructure required to turn a media idea into a usable platform — trending titles, ratings and a full catalogue of movies and series.',
+    href: 'https://web-jade-one-82.vercel.app/?type=series',
+    shot: '/images/projects/veyra.webp',
+    mark: 'V',
+    tags: ['Streaming', 'TMDB', 'PWA'],
+  },
+  {
+    n: '02',
+    name: 'Phikila',
+    type: 'Product · Education',
+    title: 'School management, treated as a system.',
+    body: 'A connected platform for school operations — timetables, students & staff, attendance, academics and reporting — and the information institutions rely on every day.',
+    href: 'https://phikila.com/',
+    shot: '/images/projects/phikila.webp',
+    mark: 'P',
+    tags: ['EdTech', 'School operations', 'Platform'],
+  },
+  {
+    n: '03',
+    name: 'OMIX Marketplace',
+    type: 'Product · Commerce · OMIX',
+    title: 'A local marketplace built for Kericho.',
+    body: 'OMIX’s flagship commerce platform, connecting local buyers and sellers with an online marketplace designed around the Kenyan market — including M-Pesa-enabled commerce.',
+    href: 'https://market.omixsystems.store/',
+    shot: '/images/projects/omix-marketplace.webp',
+    mark: 'OM',
+    tags: ['Commerce', 'M-Pesa', 'Marketplace'],
+  },
+  {
+    n: '04',
+    name: 'OMIX Systems',
+    type: 'Company · Software',
+    title: 'The company behind the work.',
+    body: 'Optimal Modular Integration Experts. A software company built around products, systems and integrations — SaaS platforms, business systems, websites and APIs.',
+    href: 'https://omixsystems.store/',
+    shot: '/images/projects/omix-systems.webp',
+    mark: 'OS',
+    tags: ['SaaS', 'APIs', 'Integrations'],
+  },
+];
+
+// Other products in the OMIX ecosystem, shown as a compact grid.
+const more = [
+  {
+    name: 'AIDE',
+    type: 'Business management',
+    body: 'A digital management platform helping small businesses replace paperwork with simple, reliable, offline-first workflows.',
+    href: 'https://aide.omixsystems.store/',
+  },
+  {
+    name: 'Bifrost',
+    type: 'AI infrastructure',
+    body: 'An AI model routing and orchestration layer connecting applications and agents to the right model through one programmable gateway.',
+    href: 'https://bifrost.omixsystems.store/',
+  },
+  {
+    name: 'Omni Analytics',
+    type: 'Analytics',
+    body: 'Analytics and project intelligence interface for tracking work, performance and progress.',
+    href: 'https://omnianalytics.vercel.app/',
+  },
+];
+
+// Experience — the company story, in numbered entries.
+const xp = [
+  {
+    n: '01',
+    role: 'Founder & CEO',
+    org: 'OMIX Systems',
+    orgHref: 'https://omixsystems.store/',
+    range: 'Present · Kericho, Kenya',
+    body:
+      'Founded OMIX — Optimal Modular Integration Experts — to build digital products and integrated software systems that solve practical problems. The company combines product development with client engineering: SaaS platforms, business systems, websites and APIs designed to operate, scale and remain maintainable.',
+    tags: ['Product engineering', 'Systems & integrations', 'Cloud & infrastructure', 'M-Pesa & payments'],
+    link: 'Visit OMIX Systems ↗',
+    linkHref: 'https://omixsystems.store/',
+  },
+  {
+    n: '02',
+    role: 'Building the OMIX ecosystem',
+    org: 'Products & platform work',
+    orgHref: 'https://blog.omixsystems.store/',
+    range: 'Ongoing',
+    body:
+      'Not everything needs to be finished to be worth building. Veyra, Phikila, OMIX Marketplace, the OMIX Journal and new experiments — plus the infrastructure that supports them. I keep a portfolio because the work changes; this is a record of what is being built now, not a museum of finished projects.',
+    tags: ['Veyra', 'Phikila', 'OMIX Marketplace', 'OMIX Journal'],
+    link: 'Read the journal ↗',
+    linkHref: 'https://blog.omixsystems.store/',
+  },
+];
+
+const capabilities = [
+  ['01', 'Product engineering', 'From rough idea to working product, with architecture designed to survive beyond an MVP.'],
+  ['02', 'Systems & integrations', 'APIs, data, authentication, payments and services designed to connect rather than become islands.'],
+  ['03', 'Cloud & infrastructure', 'Deployment, environments and operational foundations that keep products moving.'],
+  ['04', 'AI & automation', 'Practical use of models, agents and automation where they create leverage instead of noise.'],
+];
+
+const favicon =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2304060c'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23d69a4b' text-anchor='middle'%3EG.%3C/text%3E%3C/svg%3E";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta name="theme-color" content="#04060c"/>
+    <title>Gideon Langat — Founder & CEO, OMIX Systems</title>
+    <meta name="description" content="Gideon Langat is the Founder & CEO of OMIX Systems, a software developer and product builder."/>
+    <link rel="canonical" href="https://admin.omixsystems.store/"/>
+    <link rel="preload" as="image" href="/images/site-background.jpg" fetchpriority="high"/>
+    <link rel="icon" href={favicon}/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://admin.omixsystems.store/"/>
+    <meta property="og:title" content="Gideon Langat — Founder & CEO, OMIX Systems"/>
+    <meta property="og:description" content="Software developer, product builder and founder of OMIX Systems."/>
+    <meta property="og:image" content="https://admin.omixsystems.store/images/site-background.jpg"/>
+    <ClientRouter/>
+    <style is:global>
+      .contact-alt{display:flex;align-items:center;justify-content:center;gap:10px 22px;flex-wrap:wrap;margin-top:26px;font-size:13px}
+      .contact-alt .sep{color:var(--muted);opacity:.6}
+
+      /* ---------- Scheduling modal (unchanged behaviour) ---------- */
+      .schedule-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(1,2,7,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+      .schedule-overlay.is-open{opacity:1;visibility:visible}
+      .schedule-modal{position:relative;width:min(560px,100%);max-height:calc(100svh - 40px);overflow:auto;background:#0b0d14;border:1px solid rgba(255,255,255,.22);padding:34px 34px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5);transform:translateY(14px);transition:transform .3s ease}
+      .schedule-overlay.is-open .schedule-modal{transform:none}
+      .schedule-close{position:absolute;top:10px;right:14px;border:0;background:transparent;color:#fff;font-size:30px;line-height:1;cursor:pointer;opacity:.7}
+      .schedule-close:hover{opacity:1}
+      .schedule-progress{height:2px;background:rgba(255,255,255,.16);margin-bottom:16px}
+      .schedule-progress i{display:block;height:100%;width:33.33%;background:#d69a4b;transition:width .3s ease}
+      .schedule-step{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:0 0 8px}
+      .schedule-modal h3{font-size:clamp(1.6rem,4vw,2.1rem);margin:0 0 22px;color:#fff}
+      .schedule-pane{display:none}
+      .schedule-pane.is-active{display:block}
+      .schedule-options{display:grid;gap:10px}
+      .schedule-option{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;text-align:left;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.18);color:#fff;cursor:pointer;transition:border-color .2s,background .2s;font-family:'DM Sans',system-ui,sans-serif}
+      .schedule-option:hover{border-color:rgba(255,255,255,.45)}
+      .schedule-option.is-selected{border-color:#d69a4b;background:rgba(214,154,75,.10)}
+      .schedule-option .dot{width:14px;height:14px;margin-top:4px;border:1px solid rgba(255,255,255,.5);border-radius:50%;position:relative}
+      .schedule-option.is-selected .dot{border-color:#d69a4b}
+      .schedule-option.is-selected .dot:after{content:'';position:absolute;inset:3px;border-radius:50%;background:#d69a4b}
+      .schedule-option strong{display:block;font-size:15px;font-weight:600}
+      .schedule-option span{font-size:13px;color:rgba(255,255,255,.65)}
+      .schedule-field{display:block;margin-bottom:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+      .schedule-field input,.schedule-field textarea{display:block;width:100%;margin-top:8px;padding:13px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);color:#fff;font:400 16px/1.4 'DM Sans',system-ui,sans-serif;letter-spacing:0;text-transform:none}
+      .schedule-field textarea{min-height:110px;resize:vertical}
+      .schedule-field input:focus,.schedule-field textarea:focus{outline:none;border-color:#d69a4b}
+      .schedule-field input::placeholder,.schedule-field textarea::placeholder{color:rgba(255,255,255,.35)}
+      .schedule-error{color:#f0a35e;font-size:13px;margin:12px 0 0}
+      .schedule-summary{margin:18px 0 4px;padding:6px 16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);font-size:14px;color:rgba(255,255,255,.85)}
+      .schedule-summary div{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+      .schedule-summary div:last-child{border-bottom:0}
+      .schedule-summary span{color:rgba(255,255,255,.55)}
+      .schedule-summary strong{font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis}
+      .schedule-note{font-size:13px;color:rgba(255,255,255,.6);margin:14px 0 0}
+      .schedule-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}
+      .schedule-nav .button{min-width:170px}
+      .schedule-done-text{font-size:15px;color:rgba(255,255,255,.85);margin:0 0 8px}
+      @media(max-width:560px){.schedule-modal{padding:26px 20px 22px}.schedule-nav .button{min-width:0;flex:1}}
+      @media(prefers-reduced-motion:reduce){.schedule-overlay,.schedule-modal,.schedule-progress i{transition:none}}
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#about">Skip to Content</a>
+    <div class="site-backdrop" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"></div>
+
+    <!-- Fixed side navigation (desktop) -->
+    <nav class="side-nav" aria-label="Primary">
+      <a href="#top" class="wordmark magnetic"><span class="mark">G</span><span>GIDEON<span>.</span></span></a>
+      <div class="side-links">
+        <a href="#about" data-section="about" data-index="01.">About</a>
+        <a href="#experience" data-section="experience" data-index="02.">Experience</a>
+        <a href="#projects" data-section="projects" data-index="03.">Projects</a>
+        <a href="#writing" data-section="writing" data-index="04.">Writing</a>
+        <a href="#contact" data-section="contact" data-index="05.">Contact</a>
+      </div>
+      <div class="side-foot">
+        <div class="socials">
+          <a href="https://github.com/oliver4441" aria-label="GitHub" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/gideon-langat-5b32b3301" aria-label="LinkedIn" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+          </a>
+          <a href="https://wa.me/254768213649" aria-label="WhatsApp" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://omixsystems.store/" aria-label="OMIX Systems" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 1.5a10.5 10.5 0 0 1 6.111 1.982l-1.748 1.748a3 3 0 0 0-.363 3.79l-2.16 2.16a3 3 0 0 0-3.79.363l-2.353 2.353a3 3 0 1 0 1.06 1.06l2.354-2.353a3 3 0 0 0 3.79-.363l2.16-2.16a3 3 0 0 0 3.788-.364l1.749-1.748A10.5 10.5 0 1 1 12 1.5z"/></svg>
+          </a>
+        </div>
+        <a class="side-email" href="mailto:hello@omixsystems.store">hello@omixsystems.store</a>
+      </div>
+    </nav>
+
+    <!-- Top bar + overlay menu (mobile) -->
+    <header class="top-bar">
+      <a href="#top" class="wordmark"><span class="mark">G</span><span>GIDEON<span>.</span></span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="bars" aria-hidden="true"><i></i><i></i></span>Menu
+      </button>
+    </header>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Primary, mobile">
+      <div class="mobile-menu-links">
+        <a href="#about" data-section="about"><span>01.</span>About</a>
+        <a href="#experience" data-section="experience"><span>02.</span>Experience</a>
+        <a href="#projects" data-section="projects"><span>03.</span>Projects</a>
+        <a href="#writing" data-section="writing"><span>04.</span>Writing</a>
+        <a href="#contact" data-section="contact"><span>05.</span>Contact</a>
+      </div>
+      <div class="mobile-menu-foot">
+        <div class="socials">
+          <a href="https://github.com/oliver4441" aria-label="GitHub" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/gideon-langat-5b32b3301" aria-label="LinkedIn" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+          </a>
+          <a href="https://wa.me/254768213649" aria-label="WhatsApp" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://omixsystems.store/" aria-label="OMIX Systems" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 1.5a10.5 10.5 0 0 1 6.111 1.982l-1.748 1.748a3 3 0 0 0-.363 3.79l-2.16 2.16a3 3 0 0 0-3.79.363l-2.353 2.353a3 3 0 1 0 1.06 1.06l2.354-2.353a3 3 0 0 0 3.79-.363l2.16-2.16a3 3 0 0 0 3.788-.364l1.749-1.748A10.5 10.5 0 1 1 12 1.5z"/></svg>
+          </a>
+        </div>
+        <a class="mobile-menu-email" href="mailto:hello@omixsystems.store">hello@omixsystems.store</a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <!-- ============ Hero ============ -->
+      <section class="hero editorial-wrap" data-section-target="top">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Hi, my name is</p>
+          <h1 class="hero-name">Gideon Langat.</h1>
+          <p class="hero-tag">I build <em>products</em>, <em>systems</em> and companies.</p>
+          <p class="hero-lede">In that order.</p>
+          <p class="hero-intro">I'm a software developer and product builder, and the founder of OMIX Systems — where I turn ideas into digital products and the systems behind them.</p>
+          <div class="hero-actions">
+            <a class="button dark magnetic" href="#projects">See the work</a>
+            <a class="text-link" href="#contact">Get in touch →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ About ============ -->
+      <section id="about" class="section editorial-wrap" data-section-target="about">
+        <header data-reveal>
+          <p class="section-label"><b>01.</b> About</p>
+          <h2 class="section-title">I like building things that <em>connect</em>.</h2>
+        </header>
+        <div class="about-grid">
+          <div class="prose" data-reveal>
+            <p>Software is rarely useful in isolation. The product, the data, the people using it and the services underneath all have to make sense together.</p>
+            <p>That is the thinking behind my work. I move between engineering, product decisions and the business questions around them — building systems that are practical first and ambitious second.</p>
+            <p>OMIX Systems is the company I am building around that philosophy.</p>
+          </div>
+          <figure class="about-photo" data-reveal>
+            <div class="photo-fallback" aria-hidden="true"><b>GL</b><span>Gideon Langat</span></div>
+            <img src={img('gideon-profile.webp')} alt="Gideon Langat" onerror="this.style.display='none'"/>
+          </figure>
+        </div>
+
+        <div class="about-capabilities" data-reveal>
+          <p class="section-subhead">How I build</p>
+          <div class="capability-list">
+            {capabilities.map(([n, title, text]) => (
+              <div class="capability">
+                <span>{n}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="about-personal" data-reveal>
+          <p class="section-subhead">Outside the code</p>
+          <p>There's more to building than sitting at a screen. These are the parts of life that do not fit neatly into a CV — time outside, games, experiments, and the people and places that keep the work in perspective.</p>
+        </div>
+        <div class="life-strip about-personal" data-reveal style="margin-top:34px">
+          <figure><img src={img('gideon-outdoors.webp')} alt="Gideon outdoors" loading="lazy" onerror="this.closest('figure').remove()"/></figure>
+          <figure><img src={img('gideon-gaming.webp')} alt="Gideon gaming" loading="lazy" onerror="this.closest('figure').remove()"/></figure>
+          <figure><img src={img('gideon-workspace.webp')} alt="Gideon workspace" loading="lazy" onerror="this.closest('figure').remove()"/></figure>
+        </div>
+      </section>
+
+      <!-- ============ Experience ============ -->
+      <section id="experience" class="section editorial-wrap" data-section-target="experience">
+        <header data-reveal>
+          <p class="section-label"><b>02.</b> Experience</p>
+          <h2 class="section-title">The company behind the <em>work</em>.</h2>
+        </header>
+        <div class="xp-list">
+          {xp.map((item) => (
+            <article class="xp-item" data-reveal>
+              <div class="xp-side">
+                <span class="xp-num">{item.n}.</span>
+                <span class="xp-range">{item.range}</span>
+              </div>
+              <div class="xp-body">
+                <h3>{item.role} <span class="at">·</span> <a href={item.orgHref}>{item.org}</a></h3>
+                <p>{item.body}</p>
+                <ul class="xp-tags">
+                  {item.tags.map((tag) => (<li>{tag}</li>))}
+                </ul>
+                <a class="xp-link" href={item.linkHref}>{item.link}</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- ============ Projects ============ -->
+      <section id="projects" class="section editorial-wrap" data-section-target="projects">
+        <header data-reveal>
+          <p class="section-label"><b>03.</b> Projects</p>
+          <h2 class="section-title">Selected work, built <em>end to end</em>.</h2>
+          <p class="projects-intro">A few products and platforms I've designed, engineered and shipped — from the first idea through the infrastructure that keeps them running.</p>
+        </header>
+
+        <div class="projects-list">
+          {work.map((item) => (
+            <article class="project-card" data-reveal>
+              <div class="project-content">
+                <p class="eyebrow">{item.type}</p>
+                <h3>{item.name}</h3>
+                <h4>{item.title}</h4>
+                <p>{item.body}</p>
+                <div class="project-links">
+                  <a class="project-link" href={item.href}>View project <span>↗</span></a>
+                  {item.tags.map((tag) => (<span class="project-tag">{tag}</span>))}
+                </div>
+              </div>
+              <a class="project-shot" data-parallax="0.05" href={item.href} aria-label={`Open ${item.name}`}>
+                <div class="shot-fallback" aria-hidden="true"><b>{item.mark}</b><span>{item.name}</span></div>
+                <img src={item.shot} alt={`${item.name} — live product screenshot`} loading="lazy" onerror="this.style.display='none'"/>
+                <span class="shot-badge" aria-hidden="true">↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="more-projects" data-reveal>
+          <div class="more-head">
+            <h3>Other noteworthy products</h3>
+            <a class="text-link" href="https://omixsystems.store/#apps">View the full archive →</a>
+          </div>
+          <div class="more-grid">
+            {more.map((item) => (
+              <div class="more-card">
+                <span class="eyebrow">{item.type}</span>
+                <h4>{item.name}</h4>
+                <p>{item.body}</p>
+                <a class="stretched" href={item.href} aria-label={`Open ${item.name}`}></a>
+                <span class="open" aria-hidden="true">↗</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Writing ============ -->
+      <section id="writing" class="section editorial-wrap" data-section-target="writing">
+        <header data-reveal>
+          <p class="section-label"><b>04.</b> Writing</p>
+          <h2 class="section-title">Things I'm thinking <em>about</em>.</h2>
+          <p class="projects-intro">Writing is where I slow down enough to explain the decisions behind the products.</p>
+        </header>
+        <div class="notes-list" data-reveal>
+          <a href="https://blog.omixsystems.store/" class="note-row">
+            <span>Engineering</span><strong>Why modular systems matter</strong><span class="arrow">↗</span>
+          </a>
+          <a href="https://blog.omixsystems.store/" class="note-row">
+            <span>Founder notes</span><strong>Building products through OMIX</strong><span class="arrow">↗</span>
+          </a>
+          <a href="https://blog.omixsystems.store/" class="note-row">
+            <span>Product</span><strong>What makes software useful?</strong><span class="arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ Contact ============ -->
+      <section id="contact" class="section editorial-wrap contact-section" data-section-target="contact">
+        <div class="contact-inner" data-reveal>
+          <p class="section-label" style="justify-content:center"><b>05.</b> What's Next?</p>
+          <h2>Have an idea worth <em style="font-style:italic;color:var(--accent)">making</em>?</h2>
+          <p>Tell me what you are trying to build. If it makes sense, we can work out the system behind it.</p>
+          <div class="contact-actions">
+            <button class="button gold magnetic" type="button" data-open-schedule>Schedule a meeting</button>
+          </div>
+          <div class="contact-alt">
+            <a class="text-link" href="mailto:hello@omixsystems.store">Email Gideon</a>
+            <span class="sep">·</span>
+            <a class="text-link" href="https://omixsystems.store/">Build with OMIX ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer editorial-wrap">
+      <div class="foot-credit"><b>GIDEON LANGAT</b></div>
+      <div class="foot-links">
+        <a href="https://github.com/oliver4441">GitHub</a>
+        <a href="https://linkedin.com/in/gideon-langat-5b32b3301">LinkedIn</a>
+        <a href="https://omixsystems.store/">OMIX Systems</a>
+        <a href="https://blog.omixsystems.store/">Journal</a>
+      </div>
+      <small>© 2026 Gideon Langat. Built through OMIX Systems.</small>
+    </footer>
+
+    <div class="schedule-overlay" id="scheduleOverlay">
+      <div class="schedule-modal" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle">
+        <button class="schedule-close" type="button" data-schedule-close aria-label="Close scheduling">×</button>
+        <div class="schedule-progress"><i id="scheduleBar"></i></div>
+        <p class="schedule-step" id="scheduleStepLabel">Step 1 of 3</p>
+        <h3 id="scheduleTitle">What would you like to talk about?</h3>
+        <div class="schedule-pane is-active" data-pane="1">
+          <div class="schedule-options" role="radiogroup" aria-label="Meeting topic">
+            <button type="button" class="schedule-option" data-topic="A new product idea"><span class="dot" aria-hidden="true"></span><span><strong>A product idea</strong><span>You have something you want to build.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="A project with OMIX"><span class="dot" aria-hidden="true"></span><span><strong>A project with OMIX</strong><span>Scope, quote or ongoing work.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="Partnership"><span class="dot" aria-hidden="true"></span><span><strong>Partnership</strong><span>Collaborations and business.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="Just a conversation"><span class="dot" aria-hidden="true"></span><span><strong>Just a conversation</strong><span>Advice, questions, or saying hi.</span></span></button>
+          </div>
+          <p class="schedule-error" hidden>Please pick a topic to continue.</p>
+          <div class="schedule-nav"><span></span><button class="button dark" type="button" data-next>Continue →</button></div>
+        </div>
+        <div class="schedule-pane" data-pane="2">
+          <label class="schedule-field">Your name<input id="scheduleName" type="text" name="name" placeholder="Jane Doe" autocomplete="name"/></label>
+          <label class="schedule-field">Email address<input id="scheduleEmail" type="email" name="email" placeholder="jane@example.com" autocomplete="email"/></label>
+          <p class="schedule-error" hidden>Please add your name and a valid email so I can reach you.</p>
+          <div class="schedule-nav"><button class="text-link" type="button" data-back>← Back</button><button class="button dark" type="button" data-next>Continue →</button></div>
+        </div>
+        <div class="schedule-pane" data-pane="3">
+          <label class="schedule-field">Anything I should know first? <span style="text-transform:none;letter-spacing:0">(optional)</span><textarea id="scheduleNotes" placeholder="A sentence or two about what you want to discuss…"></textarea></label>
+          <div class="schedule-summary" id="scheduleSummary"></div>
+          <div class="schedule-nav"><button class="text-link" type="button" data-back>← Back</button><a class="button gold" id="scheduleGo" href="https://calendly.com/twistedoliver211fs/discussion" target="_blank" rel="noopener">Pick a time →</a></div>
+          <p class="schedule-note">You will choose a day and time on the next screen — your details carry over automatically.</p>
+        </div>
+        <div class="schedule-pane" data-pane="4">
+          <p class="schedule-done-text">My calendar should now be open in a new tab with your details already filled in. Pick a time that suits you — I look forward to talking.</p>
+          <div class="schedule-nav"><a class="text-link" id="scheduleReopen" href="https://calendly.com/twistedoliver211fs/discussion" target="_blank" rel="noopener">Reopen calendar</a><button class="button outline" type="button" data-schedule-close>Done</button></div>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mobile = matchMedia('(max-width: 1080px)');
+
+      /* Reveal-on-scroll */
+      const reveal = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('is-visible') }), { threshold: mobile.matches ? .08 : .14, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(e => reveal.observe(e));
+
+      /* Scroll-spy — side nav + mobile menu */
+      const sections = [...document.querySelectorAll('[data-section-target]')];
+      const navLinks = [...document.querySelectorAll('[data-section]')];
+      const setActive = id => navLinks.forEach(a => a.classList.toggle('is-active', a.dataset.section === id));
+      const sectionObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.dataset.sectionTarget) }), { rootMargin: '-38% 0px -52% 0px', threshold: 0 });
+      sections.forEach(s => sectionObserver.observe(s));
+
+      /* Mobile menu */
+      document.querySelectorAll('.mobile-menu a, .side-links a').forEach(a => a.addEventListener('click', () => {
+        document.body.classList.remove('index-open');
+        document.querySelector('.menu-btn')?.setAttribute('aria-expanded', 'false');
+      }));
+      const toggle = document.querySelector('.menu-btn');
+      toggle?.addEventListener('click', () => {
+        const open = !document.body.classList.contains('index-open');
+        document.body.classList.toggle('index-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      addEventListener('keydown', e => { if (e.key === 'Escape') { document.body.classList.remove('index-open'); toggle?.setAttribute('aria-expanded', 'false'); } });
+
+      /* Parallax + scroll progress */
+      const p = [...document.querySelectorAll('[data-parallax]')];
+      let ticking = false;
+      const update = () => {
+        document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+        if (reduce || mobile.matches) { ticking = false; return; }
+        const vh = innerHeight;
+        p.forEach(el => {
+          const r = el.getBoundingClientRect(), v = Number(el.dataset.parallax || 0), o = ((r.top + r.height / 2 - vh / 2) / vh) * -70 * v;
+          el.style.setProperty('--parallax-y', `${o}px`);
+        });
+        ticking = false;
+      };
+      addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+      addEventListener('resize', update, { passive: true });
+      update();
+
+      /* Magnetic buttons */
+      document.querySelectorAll('.magnetic').forEach(el => {
+        el.addEventListener('pointermove', e => {
+          if (reduce || mobile.matches) return;
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', `${(e.clientX - r.left - r.width / 2) * .12}px`);
+          el.style.setProperty('--my', `${(e.clientY - r.top - r.height / 2) * .12}px`);
+        });
+        el.addEventListener('pointerleave', () => { el.style.setProperty('--mx', '0px'); el.style.setProperty('--my', '0px'); });
+      });
+
+      /* Scheduling modal */
+      ;(() => {
+        const CAL = 'https://calendly.com/twistedoliver211fs/discussion';
+        const overlay = document.getElementById('scheduleOverlay');
+        if (!overlay) return;
+        const title = document.getElementById('scheduleTitle'), stepLabel = document.getElementById('scheduleStepLabel'), bar = document.getElementById('scheduleBar');
+        const panes = [...overlay.querySelectorAll('.schedule-pane')];
+        const state = { topic: '', name: '', email: '', notes: '' };
+        let step = 1;
+        const titles = { 1: 'What would you like to talk about?', 2: 'How do I reach you?', 3: 'Anything I should know first?', 4: 'One last step — pick a time.' };
+        const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        function renderSummary() {
+          const rows = [['Topic', state.topic], ['Name', state.name], ['Email', state.email]];
+          if (state.notes) rows.push(['Notes', state.notes.length > 90 ? state.notes.slice(0, 90) + '…' : state.notes]);
+          document.getElementById('scheduleSummary').innerHTML = rows.map(([k, v]) => '<div><span>' + k + '</span><strong>' + esc(v) + '</strong></div>').join('');
+          const a1 = (state.topic + (state.notes ? ' — ' + state.notes : '')).slice(0, 500);
+          const url = CAL + '?name=' + encodeURIComponent(state.name) + '&email=' + encodeURIComponent(state.email) + '&a1=' + encodeURIComponent(a1);
+          document.getElementById('scheduleGo').href = url;
+          document.getElementById('scheduleReopen').href = url;
+        }
+        function show(n) {
+          step = n;
+          panes.forEach(p => p.classList.toggle('is-active', +p.dataset.pane === n));
+          title.textContent = titles[n];
+          stepLabel.textContent = n < 4 ? ('Step ' + n + ' of 3') : 'Almost done';
+          bar.style.width = (n >= 4 ? 100 : n * 33.34) + '%';
+          panes[n - 1].querySelectorAll('.schedule-error').forEach(e => e.hidden = true);
+          if (n === 3) renderSummary();
+          const f = panes[n - 1].querySelector('input,.schedule-option');
+          if (f && n < 3) f.focus({ preventScroll: true });
+        }
+        function openM() { overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; show(1); }
+        function closeM() { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
+        document.querySelectorAll('[data-open-schedule]').forEach(b => b.addEventListener('click', openM));
+        overlay.querySelectorAll('[data-schedule-close]').forEach(b => b.addEventListener('click', closeM));
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeM(); });
+        addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeM(); });
+        overlay.querySelectorAll('.schedule-option').forEach(o => o.addEventListener('click', () => {
+          overlay.querySelectorAll('.schedule-option').forEach(x => x.classList.remove('is-selected'));
+          o.classList.add('is-selected');
+          state.topic = o.dataset.topic;
+          o.closest('.schedule-pane').querySelector('.schedule-error').hidden = true;
+        }));
+        overlay.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => {
+          const pane = panes[step - 1], err = pane.querySelector('.schedule-error');
+          if (step === 1 && !state.topic) { err.hidden = false; return; }
+          if (step === 2) {
+            state.name = document.getElementById('scheduleName').value.trim();
+            state.email = document.getElementById('scheduleEmail').value.trim();
+            if (!state.name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) { err.hidden = false; return; }
+          }
+          show(step + 1);
+        }));
+        overlay.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => show(step - 1)));
+        document.getElementById('scheduleGo').addEventListener('click', () => {
+          state.notes = document.getElementById('scheduleNotes').value.trim();
+          renderSummary();
+          setTimeout(() => show(4), 400);
+        });
+      })();
+    </script>
+  </body>
+</html>
