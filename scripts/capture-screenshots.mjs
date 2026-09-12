@@ -12,7 +12,7 @@ const OUT_DIR = new URL('../public/images/projects/', import.meta.url).pathname;
 
 const targets = [
   { name: 'veyra', url: 'https://web-jade-one-82.vercel.app/?type=series' },
-  { name: 'phikila', url: 'https://phikila.com/' },
+  { name: 'decimal', url: 'https://decimal.omixsystems.store/' },
   { name: 'omix-marketplace', url: 'https://market.omixsystems.store/' },
   { name: 'omix-systems', url: 'https://omixsystems.store/' },
 ];
