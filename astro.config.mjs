@@ -4,7 +4,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   adapter: vercel(),
   site: 'https://admin.omixsystems.store',
-  output: 'server',
+  output: 'static',
   compressHTML: true,
   vite: {
     server: {
