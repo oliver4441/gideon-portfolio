@@ -1,0 +1,23 @@
+# Gideon Portfolio
+
+> Personal portfolio for Gideon / Oliver, a software developer building web applications, software products, platforms, and AI infrastructure.
+
+## Website
+- Homepage: https://admin.omixsystems.store/
+- Sitemap: https://admin.omixsystems.store/sitemap.xml
+
+## Featured work
+- Veyra: https://web-jade-one-82.vercel.app/?type=series
+- Decimal: https://decimal.omixsystems.store/
+- OMIX Marketplace: https://market.omixsystems.store/
+- OMIX Systems: https://omixsystems.store/
+
+## Other projects
+- AIDE: https://aide.omixsystems.store/
+- Bifrost: https://bifrost.omixsystems.store/
+
+## About
+This site presents the developer's selected projects, products, technical work, and links to related live applications. The homepage is the canonical source for the portfolio's current project descriptions.
+
+## Crawling
+The site is publicly crawlable. See /robots.txt for crawler access and the sitemap location.
