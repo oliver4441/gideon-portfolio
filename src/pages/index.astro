@@ -59,6 +59,17 @@ const work = [
     mark: 'OS',
     tags: ['SaaS', 'APIs', 'Integrations'],
   },
+  {
+    n: '05',
+    name: 'Bro',
+    type: 'Product · Communication',
+    title: 'A more expressive space for your inner circle.',
+    body: 'An Android-first messaging product designed around direct conversations, with voice and video calling, GIF creation, and lightweight in-chat games that make staying connected more personal.',
+    href: 'https://bro.omixsystems.store/',
+    shot: null,
+    mark: 'B',
+    tags: ['Android', 'Messaging', 'Social'],
+  },
 ];
 
 // Other products in the OMIX ecosystem, shown as a compact grid.
@@ -171,10 +182,15 @@ const favicon =
       .schedule-option strong{display:block;font-size:15px;font-weight:600}
       .schedule-option span{font-size:13px;color:rgba(255,255,255,.65)}
       .schedule-field{display:block;margin-bottom:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65)}
-      .schedule-field input,.schedule-field textarea{display:block;width:100%;margin-top:8px;padding:13px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);color:#fff;font:400 16px/1.4 'DM Sans',system-ui,sans-serif;letter-spacing:0;text-transform:none}
+      .schedule-field input,.schedule-field textarea,.schedule-field select{display:block;width:100%;margin-top:8px;padding:13px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);color:#fff;font:400 16px/1.4 'DM Sans',system-ui,sans-serif;letter-spacing:0;text-transform:none}
       .schedule-field textarea{min-height:110px;resize:vertical}
-      .schedule-field input:focus,.schedule-field textarea:focus{outline:none;border-color:#d69a4b}
+      .schedule-field input:focus,.schedule-field textarea:focus,.schedule-field select:focus{outline:none;border-color:#d69a4b}
       .schedule-field input::placeholder,.schedule-field textarea::placeholder{color:rgba(255,255,255,.35)}
+      .schedule-field select{color-scheme:dark;cursor:pointer}
+      .schedule-field select option{background:#0b0d14;color:#fff}
+      .schedule-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+      .schedule-error[role="alert"]{line-height:1.5}
+      .schedule-option:focus-visible,.schedule-close:focus-visible,.schedule-field input:focus-visible,.schedule-field textarea:focus-visible,.schedule-field select:focus-visible{outline:2px solid #d69a4b;outline-offset:3}
       .schedule-error{color:#f0a35e;font-size:13px;margin:12px 0 0}
       .schedule-summary{margin:18px 0 4px;padding:6px 16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);font-size:14px;color:rgba(255,255,255,.85)}
       .schedule-summary div{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -371,7 +387,7 @@ const favicon =
               </div>
               <a class="project-shot" data-parallax="0.05" href={item.href} aria-label={`Open ${item.name}`}>
                 <div class="shot-fallback" aria-hidden="true"><b>{item.mark}</b><span>{item.name}</span></div>
-                <img src={item.shot} alt={`${item.name} — live product screenshot`} loading="eager" decoding="async" referrerpolicy="no-referrer"/>
+                {item.shot && <img src={item.shot} alt={`${item.name} — live product screenshot`} loading="eager" decoding="async" referrerpolicy="no-referrer"/>}
                 <span class="shot-badge" aria-hidden="true">↗</span>
               </a>
             </article>
@@ -448,38 +464,83 @@ const favicon =
     </footer>
 
     <div class="schedule-overlay" id="scheduleOverlay">
-      <div class="schedule-modal" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle">
+      <form id="scheduleForm" class="schedule-modal" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle" action="https://formspree.io/f/xqpqqezw" method="POST" novalidate>
         <button class="schedule-close" type="button" data-schedule-close aria-label="Close scheduling">×</button>
-        <div class="schedule-progress"><i id="scheduleBar"></i></div>
-        <p class="schedule-step" id="scheduleStepLabel">Step 1 of 3</p>
+        <div class="schedule-progress" aria-hidden="true"><i id="scheduleBar"></i></div>
+        <p class="schedule-step" id="scheduleStepLabel">Step 1 of 4</p>
         <h3 id="scheduleTitle">What would you like to talk about?</h3>
+
+        <input type="hidden" id="scheduleTopic" name="meeting_topic"/>
+        <input type="hidden" name="_subject" value="New meeting request — Gideon Langat portfolio"/>
+        <input type="hidden" name="source" value="Gideon Langat portfolio — Schedule a meeting"/>
+        <label class="schedule-honeypot" aria-hidden="true">Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"/></label>
+
         <div class="schedule-pane is-active" data-pane="1">
           <div class="schedule-options" role="radiogroup" aria-label="Meeting topic">
-            <button type="button" class="schedule-option" data-topic="A new product idea"><span class="dot" aria-hidden="true"></span><span><strong>A product idea</strong><span>You have something you want to build.</span></span></button>
-            <button type="button" class="schedule-option" data-topic="A project with OMIX"><span class="dot" aria-hidden="true"></span><span><strong>A project with OMIX</strong><span>Scope, quote or ongoing work.</span></span></button>
-            <button type="button" class="schedule-option" data-topic="Partnership"><span class="dot" aria-hidden="true"></span><span><strong>Partnership</strong><span>Collaborations and business.</span></span></button>
-            <button type="button" class="schedule-option" data-topic="Just a conversation"><span class="dot" aria-hidden="true"></span><span><strong>Just a conversation</strong><span>Advice, questions, or saying hi.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="Product or software development" role="radio" aria-checked="false"><span class="dot" aria-hidden="true"></span><span><strong>A product or software idea</strong><span>Plan an app, platform, or digital product.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="A project with OMIX" role="radio" aria-checked="false"><span class="dot" aria-hidden="true"></span><span><strong>A project with OMIX</strong><span>Discuss scope, delivery, or an ongoing engagement.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="AI, automation, or integrations" role="radio" aria-checked="false"><span class="dot" aria-hidden="true"></span><span><strong>AI, automation, or integrations</strong><span>Explore agents, workflows, APIs, or connected systems.</span></span></button>
+            <button type="button" class="schedule-option" data-topic="Partnership or consultation" role="radio" aria-checked="false"><span class="dot" aria-hidden="true"></span><span><strong>Partnership or consultation</strong><span>Discuss collaboration, advice, or a business opportunity.</span></span></button>
           </div>
-          <p class="schedule-error" hidden>Please pick a topic to continue.</p>
+          <p class="schedule-error" role="alert" hidden>Please select a topic to continue.</p>
           <div class="schedule-nav"><span></span><button class="button dark" type="button" data-next>Continue →</button></div>
         </div>
+
         <div class="schedule-pane" data-pane="2">
-          <label class="schedule-field">Your name<input id="scheduleName" type="text" name="name" placeholder="Jane Doe" autocomplete="name"/></label>
-          <label class="schedule-field">Email address<input id="scheduleEmail" type="email" name="email" placeholder="jane@example.com" autocomplete="email"/></label>
-          <p class="schedule-error" hidden>Please add your name and a valid email so I can reach you.</p>
+          <label class="schedule-field">Your name<input id="scheduleName" type="text" name="name" placeholder="Jane Doe" autocomplete="name" maxlength="120"/></label>
+          <label class="schedule-field">Email address<input id="scheduleEmail" type="email" name="email" placeholder="jane@example.com" autocomplete="email" maxlength="254"/></label>
+          <label class="schedule-field">Company or organisation <span style="text-transform:none;letter-spacing:0">(optional)</span><input id="scheduleCompany" type="text" name="company" placeholder="Company name" autocomplete="organization" maxlength="120"/></label>
+          <label class="schedule-field">Phone or WhatsApp <span style="text-transform:none;letter-spacing:0">(optional)</span><input id="schedulePhone" type="tel" name="phone" placeholder="+254 7XX XXX XXX" autocomplete="tel" maxlength="40"/></label>
+          <p class="schedule-error" role="alert" hidden>Please enter your name and a valid email address.</p>
           <div class="schedule-nav"><button class="text-link" type="button" data-back>← Back</button><button class="button dark" type="button" data-next>Continue →</button></div>
         </div>
+
         <div class="schedule-pane" data-pane="3">
-          <label class="schedule-field">Anything I should know first? <span style="text-transform:none;letter-spacing:0">(optional)</span><textarea id="scheduleNotes" placeholder="A sentence or two about what you want to discuss…"></textarea></label>
-          <div class="schedule-summary" id="scheduleSummary"></div>
-          <div class="schedule-nav"><button class="text-link" type="button" data-back>← Back</button><a class="button gold" id="scheduleGo" href="https://calendly.com/twistedoliver211fs/discussion" target="_blank" rel="noopener">Pick a time →</a></div>
-          <p class="schedule-note">You will choose a day and time on the next screen — your details carry over automatically.</p>
+          <label class="schedule-field">Preferred date<input id="scheduleDate" type="date" name="preferred_date"/></label>
+          <label class="schedule-field">Preferred time
+            <select id="scheduleTime" name="preferred_time">
+              <option value="">Select a time window</option>
+              <option value="09:00–11:00">Morning · 09:00–11:00</option>
+              <option value="11:00–13:00">Late morning · 11:00–13:00</option>
+              <option value="14:00–16:00">Afternoon · 14:00–16:00</option>
+              <option value="16:00–18:00">Late afternoon · 16:00–18:00</option>
+              <option value="Flexible">Flexible · suggest a suitable time</option>
+            </select>
+          </label>
+          <label class="schedule-field">Time zone
+            <select id="scheduleTimezone" name="timezone">
+              <option value="East Africa Time (EAT, UTC+3)" selected>East Africa Time · EAT (UTC+3)</option>
+              <option value="UTC">Coordinated Universal Time · UTC</option>
+              <option value="Please confirm by email">Other · confirm by email</option>
+            </select>
+          </label>
+          <label class="schedule-field">Meeting format
+            <select id="scheduleFormat" name="meeting_format">
+              <option value="Google Meet">Google Meet</option>
+              <option value="Phone call">Phone call</option>
+              <option value="WhatsApp call">WhatsApp call</option>
+              <option value="No preference">No preference</option>
+            </select>
+          </label>
+          <label class="schedule-field">What should I know before we meet? <span style="text-transform:none;letter-spacing:0">(optional)</span><textarea id="scheduleNotes" name="message" placeholder="A little context about your idea, goals, or questions…" maxlength="1500"></textarea></label>
+          <p class="schedule-error" role="alert" hidden>Please choose a valid future date and a preferred time window.</p>
+          <div class="schedule-nav"><button class="text-link" type="button" data-back>← Back</button><button class="button dark" type="button" data-next>Review request →</button></div>
+          <p class="schedule-note">This is a preferred time, not a confirmed booking. I’ll reply to confirm the slot or suggest an alternative.</p>
         </div>
+
         <div class="schedule-pane" data-pane="4">
-          <p class="schedule-done-text">My calendar should now be open in a new tab with your details already filled in. Pick a time that suits you — I look forward to talking.</p>
-          <div class="schedule-nav"><a class="text-link" id="scheduleReopen" href="https://calendly.com/twistedoliver211fs/discussion" target="_blank" rel="noopener">Reopen calendar</a><button class="button outline" type="button" data-schedule-close>Done</button></div>
+          <div class="schedule-summary" id="scheduleSummary" aria-live="polite"></div>
+          <p class="schedule-note">Check the details before sending. Your request will be delivered through the portfolio contact form.</p>
+          <p class="schedule-error" id="scheduleSubmitError" role="alert" hidden></p>
+          <div class="schedule-nav"><button class="text-link" type="button" data-back>← Back</button><button class="button gold" id="scheduleSubmit" type="submit">Send meeting request →</button></div>
         </div>
-      </div>
+
+        <div class="schedule-pane" data-pane="5">
+          <p class="schedule-done-text">Your meeting request has been sent.</p>
+          <p class="schedule-note">I’ll review your preferred time and reply to confirm the meeting or suggest another slot. No appointment is booked until you receive that confirmation.</p>
+          <div class="schedule-nav"><span></span><button class="button outline" type="button" data-schedule-close>Done</button></div>
+        </div>
+      </form>
     </div>
 
     <script is:inline>
@@ -538,64 +599,223 @@ const favicon =
         el.addEventListener('pointerleave', () => { el.style.setProperty('--mx', '0px'); el.style.setProperty('--my', '0px'); });
       });
 
-      /* Scheduling modal */
+      /* Formspree meeting-request flow */
       ;(() => {
-        const CAL = 'https://calendly.com/twistedoliver211fs/discussion';
+        const form = document.getElementById('scheduleForm');
         const overlay = document.getElementById('scheduleOverlay');
-        if (!overlay) return;
-        const title = document.getElementById('scheduleTitle'), stepLabel = document.getElementById('scheduleStepLabel'), bar = document.getElementById('scheduleBar');
-        const panes = [...overlay.querySelectorAll('.schedule-pane')];
-        const state = { topic: '', name: '', email: '', notes: '' };
+        if (!form || !overlay) return;
+        const title = document.getElementById('scheduleTitle');
+        const stepLabel = document.getElementById('scheduleStepLabel');
+        const progress = document.getElementById('scheduleBar');
+        const panes = [...form.querySelectorAll('.schedule-pane')];
+        const topicInput = document.getElementById('scheduleTopic');
+        const nameInput = document.getElementById('scheduleName');
+        const emailInput = document.getElementById('scheduleEmail');
+        const dateInput = document.getElementById('scheduleDate');
+        const timeInput = document.getElementById('scheduleTime');
+        const summary = document.getElementById('scheduleSummary');
+        const submitButton = document.getElementById('scheduleSubmit');
+        const submitError = document.getElementById('scheduleSubmitError');
+        const initialSubmitLabel = submitButton.textContent;
+        const titles = {
+          1: 'What would you like to talk about?',
+          2: 'How can I reach you?',
+          3: 'When would suit you?',
+          4: 'Review your meeting request',
+          5: 'Request received'
+        };
         let step = 1;
-        const titles = { 1: 'What would you like to talk about?', 2: 'How do I reach you?', 3: 'Anything I should know first?', 4: 'One last step — pick a time.' };
-        const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        let opener = null;
+        const localDate = () => {
+          const now = new Date();
+          const month = String(now.getMonth() + 1).padStart(2, '0');
+          const day = String(now.getDate()).padStart(2, '0');
+          return now.getFullYear() + '-' + month + '-' + day;
+        };
+        dateInput.min = localDate();
+
+        function clearErrors() {
+          form.querySelectorAll('.schedule-error').forEach(error => {
+            error.hidden = true;
+            error.textContent = '';
+          });
+          submitError.hidden = true;
+          submitError.textContent = '';
+        }
+        function showError(paneNumber, message) {
+          const error = panes[paneNumber - 1].querySelector('.schedule-error');
+          if (!error) return;
+          error.textContent = message;
+          error.hidden = false;
+        }
+        function getValues() {
+          return {
+            topic: topicInput.value.trim(),
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            company: document.getElementById('scheduleCompany').value.trim(),
+            phone: document.getElementById('schedulePhone').value.trim(),
+            date: dateInput.value,
+            time: timeInput.value,
+            timezone: document.getElementById('scheduleTimezone').value,
+            format: document.getElementById('scheduleFormat').value,
+            notes: document.getElementById('scheduleNotes').value.trim()
+          };
+        }
         function renderSummary() {
-          const rows = [['Topic', state.topic], ['Name', state.name], ['Email', state.email]];
-          if (state.notes) rows.push(['Notes', state.notes.length > 90 ? state.notes.slice(0, 90) + '…' : state.notes]);
-          document.getElementById('scheduleSummary').innerHTML = rows.map(([k, v]) => '<div><span>' + k + '</span><strong>' + esc(v) + '</strong></div>').join('');
-          const a1 = (state.topic + (state.notes ? ' — ' + state.notes : '')).slice(0, 500);
-          const url = CAL + '?name=' + encodeURIComponent(state.name) + '&email=' + encodeURIComponent(state.email) + '&a1=' + encodeURIComponent(a1);
-          document.getElementById('scheduleGo').href = url;
-          document.getElementById('scheduleReopen').href = url;
+          const values = getValues();
+          const rows = [
+            ['Topic', values.topic], ['Name', values.name], ['Email', values.email],
+            ['Company', values.company], ['Phone', values.phone], ['Preferred date', values.date],
+            ['Preferred time', values.time], ['Time zone', values.timezone],
+            ['Meeting format', values.format], ['Context', values.notes]
+          ];
+          summary.replaceChildren();
+          rows.forEach(([label, value]) => {
+            if (!value) return;
+            const row = document.createElement('div');
+            const key = document.createElement('span');
+            const content = document.createElement('strong');
+            key.textContent = label;
+            content.textContent = value;
+            row.append(key, content);
+            summary.append(row);
+          });
         }
-        function show(n) {
-          step = n;
-          panes.forEach(p => p.classList.toggle('is-active', +p.dataset.pane === n));
-          title.textContent = titles[n];
-          stepLabel.textContent = n < 4 ? ('Step ' + n + ' of 3') : 'Almost done';
-          bar.style.width = (n >= 4 ? 100 : n * 33.34) + '%';
-          panes[n - 1].querySelectorAll('.schedule-error').forEach(e => e.hidden = true);
-          if (n === 3) renderSummary();
-          const f = panes[n - 1].querySelector('input,.schedule-option');
-          if (f && n < 3) f.focus({ preventScroll: true });
+        function show(nextStep) {
+          step = nextStep;
+          panes.forEach(pane => pane.classList.toggle('is-active', Number(pane.dataset.pane) === step));
+          title.textContent = titles[step];
+          stepLabel.textContent = step <= 4 ? 'Step ' + step + ' of 4' : 'Request sent';
+          progress.style.width = (Math.min(step, 4) * 25) + '%';
+          clearErrors();
+          if (step === 4) renderSummary();
+          const focusTarget = panes[step - 1].querySelector('input:not([type="hidden"]),select,textarea,button');
+          if (focusTarget) focusTarget.focus({ preventScroll: true });
+          form.scrollTo({ top: 0, behavior: 'auto' });
         }
-        function openM() { overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; show(1); }
-        function closeM() { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
-        document.querySelectorAll('[data-open-schedule]').forEach(b => b.addEventListener('click', openM));
-        overlay.querySelectorAll('[data-schedule-close]').forEach(b => b.addEventListener('click', closeM));
-        overlay.addEventListener('click', e => { if (e.target === overlay) closeM(); });
-        addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeM(); });
-        overlay.querySelectorAll('.schedule-option').forEach(o => o.addEventListener('click', () => {
-          overlay.querySelectorAll('.schedule-option').forEach(x => x.classList.remove('is-selected'));
-          o.classList.add('is-selected');
-          state.topic = o.dataset.topic;
-          o.closest('.schedule-pane').querySelector('.schedule-error').hidden = true;
-        }));
-        overlay.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => {
-          const pane = panes[step - 1], err = pane.querySelector('.schedule-error');
-          if (step === 1 && !state.topic) { err.hidden = false; return; }
-          if (step === 2) {
-            state.name = document.getElementById('scheduleName').value.trim();
-            state.email = document.getElementById('scheduleEmail').value.trim();
-            if (!state.name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) { err.hidden = false; return; }
+        function resetForm() {
+          form.reset();
+          topicInput.value = '';
+          form.querySelectorAll('.schedule-option').forEach(option => {
+            option.classList.remove('is-selected');
+            option.setAttribute('aria-checked', 'false');
+          });
+          submitButton.disabled = false;
+          submitButton.textContent = initialSubmitLabel;
+          dateInput.min = localDate();
+          clearErrors();
+        }
+        function openModal(event) {
+          opener = event.currentTarget;
+          resetForm();
+          overlay.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          show(1);
+        }
+        function closeModal() {
+          overlay.classList.remove('is-open');
+          document.body.style.overflow = '';
+          if (opener) opener.focus({ preventScroll: true });
+        }
+        document.querySelectorAll('[data-open-schedule]').forEach(button => button.addEventListener('click', openModal));
+        overlay.querySelectorAll('[data-schedule-close]').forEach(button => button.addEventListener('click', closeModal));
+        overlay.addEventListener('click', event => { if (event.target === overlay) closeModal(); });
+        addEventListener('keydown', event => {
+          if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+          if (event.key === 'Tab' && overlay.classList.contains('is-open')) {
+            const focusable = [...form.querySelectorAll('button:not([disabled]),input:not([type="hidden"]):not([disabled]),select:not([disabled]),textarea:not([disabled])')]
+              .filter(element => element.getClientRects().length > 0);
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
           }
-          show(step + 1);
-        }));
-        overlay.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => show(step - 1)));
-        document.getElementById('scheduleGo').addEventListener('click', () => {
-          state.notes = document.getElementById('scheduleNotes').value.trim();
+        });
+        form.querySelectorAll('.schedule-option').forEach(option => {
+          option.addEventListener('click', () => {
+            form.querySelectorAll('.schedule-option').forEach(item => {
+              const selected = item === option;
+              item.classList.toggle('is-selected', selected);
+              item.setAttribute('aria-checked', String(selected));
+            });
+            topicInput.value = option.dataset.topic || '';
+            clearErrors();
+          });
+        });
+        form.querySelectorAll('[data-next]').forEach(button => {
+          button.addEventListener('click', () => {
+            clearErrors();
+            if (step === 1 && !topicInput.value) {
+              showError(1, 'Please select a topic so I can prepare for the conversation.');
+              return;
+            }
+            if (step === 2) {
+              if (!nameInput.value.trim() || !emailInput.value.trim() || !emailInput.checkValidity()) {
+                showError(2, 'Enter your name and a valid email address. The other contact fields are optional.');
+                if (!nameInput.value.trim()) nameInput.focus();
+                else emailInput.focus();
+                return;
+              }
+            }
+            if (step === 3 && (!dateInput.value || dateInput.value < localDate() || !timeInput.value)) {
+              showError(3, 'Choose today or a future date and a time window. You can select Flexible if you have no fixed preference.');
+              return;
+            }
+            show(step + 1);
+          });
+        });
+        form.querySelectorAll('[data-back]').forEach(button => button.addEventListener('click', () => show(Math.max(1, step - 1))));
+        form.addEventListener('submit', async event => {
+          event.preventDefault();
+          if (step !== 4 || submitButton.disabled) return;
+          const values = getValues();
+          if (!values.topic) {
+            show(1);
+            showError(1, 'Please select a meeting topic.');
+            return;
+          }
+          if (!values.name || !values.email || !emailInput.checkValidity()) {
+            show(2);
+            showError(2, 'Please enter your name and a valid email address.');
+            return;
+          }
+          if (!values.date || values.date < localDate() || !values.time) {
+            show(3);
+            showError(3, 'Please choose a future date and a preferred time window.');
+            return;
+          }
           renderSummary();
-          setTimeout(() => show(4), 400);
+          clearErrors();
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending…';
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' }
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) {
+              const detail = Array.isArray(result.errors) ? result.errors.map(item => item.message).filter(Boolean).join(' ') : '';
+              show(4);
+              showError(4, detail || 'The request could not be sent. Please try again.');
+              return;
+            }
+            show(5);
+          } catch (error) {
+            show(4);
+            showError(4, 'A connection problem prevented submission. Check your connection and try again.');
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = initialSubmitLabel;
+          }
         });
       })();
     </script>
